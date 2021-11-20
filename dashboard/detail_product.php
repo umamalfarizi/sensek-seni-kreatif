@@ -230,7 +230,7 @@ foreach ( $result3 as $jenis) {
                                        <tr>
                                           <th>Harga</th>
                                           <td>:</td>
-                                          <td>Rp<?= $harga; ?>,-</td>
+                                          <td>Rp. <?= number_format($harga); ?>,-</td>
                                        </tr>
                                        <tr>
                                           <th>Stok</th>

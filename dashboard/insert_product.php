@@ -167,7 +167,7 @@ if( $sessionStatus == false) {
                                           ?>
                                           <label for="kategori">Kategori</label>
                                           <select class="form-control" aria-label="Default select example" name="kategori" id="kategori" required>
-                                                <option selected>- Pilih kategori -</option>
+                                                <option>- Pilih kategori -</option>
                                                 <?php foreach( $kate as $kategori) : ?>
                                                 <option value="<?=$kategori['id_kategori']?>"><?= $kategori['nama']; ?></option>
                                                 <?php endforeach; ?>
@@ -184,7 +184,7 @@ if( $sessionStatus == false) {
                                        ?>
                                           <label for="jenis_aksesoris">Jenis Aksesoris</label>
                                           <select class="form-control" aria-label="Default select example" name="jenis_aksesoris" id="jenis_aksesoris" required>
-                                                <option selected>- Pilih Jenis -</option>
+                                                <option>- Pilih Jenis -</option>
                                                 <?php foreach( $jenis as $jenis_aksesoris) : ?>
                                                 <option value="<?=$jenis_aksesoris['id_jenis_aksesoris']?>"><?= $jenis_aksesoris['nama']; ?></option>
                                                 <?php endforeach; ?>

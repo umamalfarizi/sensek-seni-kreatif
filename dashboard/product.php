@@ -178,7 +178,7 @@ $result = mysqli_query($mysqli, $query);
                                             <td><img src="<?= $produk['foto']; ?>" style="height: 100px;"></td>
                                             <td><?= $produk['nama']; ?></td>
                                             <td><?= $produk['motif']; ?></td>
-                                            <td><?= $produk['harga']; ?></td>
+                                            <td><?= number_format($produk['harga']); ?></td>
                                             <td><?= $produk['stok']; ?></td>
                                             <td>
                                                 <a href="detail_product.php?id_produk=<?=$produk['id_produk'];?>" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i></a>
