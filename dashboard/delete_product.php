@@ -3,7 +3,8 @@
 require_once("connection.php");
 require_once("session_check.php");
 if( $sessionStatus == false ) {
-    header( 'location: product.php');
+    header( 'Location: product.php');
+    die();
 }
 
 // Mendapatkan data Id produk

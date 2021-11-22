@@ -8,7 +8,7 @@ if( $sessionStatus == false) {
    header("Location: login.php");
 }
 
-$query = "SELECT * FROM tb_produk";
+$query = "SELECT * FROM tb_jenis_aksesoris";
 $result = mysqli_query($mysqli, $query);
 
 ?>
@@ -22,7 +22,7 @@ $result = mysqli_query($mysqli, $query);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Data Produk</title>
+    <title>Admin - Data Jenis Aksesoris</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -66,7 +66,7 @@ $result = mysqli_query($mysqli, $query);
             <hr class="sidebar-divider" />
 
             <!-- Nav Item - produk -->
-            <li class="nav-item active">
+            <li class="nav-item">
             <a class="nav-link" href="product.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Produk</span>
@@ -89,7 +89,7 @@ $result = mysqli_query($mysqli, $query);
             <hr class="sidebar-divider" />
 
             <!-- Nav Item - jenis aksesoris -->
-            <li class="nav-item">
+            <li class="nav-item active">
             <a class="nav-link" href="accessories.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Jenis Aksesoris</span>
@@ -148,42 +148,32 @@ $result = mysqli_query($mysqli, $query);
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Data Produk
-                            <a href="insert_product.php" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i> Tambah Data</a>
+                            <h5 class="m-0 font-weight-bold text-primary">Data Jeni Aksesoris
+                            <a href="insert_accessories.php" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i> Tambah Data</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Foto</th>
                                             <th>Nama</th>
-                                            <th>Motif</th>
-                                            <th>Harga(Rp)</th>
-                                            <th>Stok</th>
+                                            <th>Jumlah Produk</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $i=1;
-                                        foreach($result as $produk) :
-                                        if ( $produk['foto'] == null || empty($produk["foto"]) ) {
-                                            $produk['foto'] = 'penyimpanan/default.png';
-                                        }
+                                        foreach($result as $aksesoris) :
                                         ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
-                                            <td><img src="<?= $produk['foto']; ?>" style="height: 100px;"></td>
-                                            <td><?= $produk['nama']; ?></td>
-                                            <td><?= $produk['motif']; ?></td>
-                                            <td><?= number_format($produk['harga']); ?></td>
-                                            <td><?= $produk['stok']; ?></td>
+                                            <td><?= $aksesoris['nama']; ?></td>
+                                            <td>15</td>
                                             <td>
-                                                <a href="detail_product.php?id_produk=<?=$produk['id_produk'];?>" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i></a>
-                                                <a href="update_product.php?id_produk=<?=$produk['id_produk'];?>" class="btn btn-success btn-sm my-2"><i class="fa fa-edit"></i></a>
-                                                <a href="delete_product.php?id_produk=<?=$produk['id_produk'];?>" onclick=" return confirm_delete()" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                <a href="update_accessories.php?id_jenis_aksesoris=<?=$aksesoris['id_jenis_aksesoris'];?>" class="btn btn-success btn-sm my-2"><i class="fa fa-edit"></i></a>
+                                                <a href="delete_accessories.php?id_jenis_aksesoris=<?=$aksesoris['id_jenis_aksesoris'];?>" onclick=" return confirm_delete()" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>
@@ -283,7 +273,7 @@ $result = mysqli_query($mysqli, $query);
 
     <script type="text/javascript">
         function confirm_delete(){
-            return confirm("Anda yakin ingin menghapus data ini?");
+            return confirm("Jika Anda menghapus jenis aksesoris ini, maka semua produk yang termasuk aksesoris ini ikut terhapus. Anda yakin?");
         }
     </script>
 

@@ -30,6 +30,9 @@ if( $sessionStatus == false) {
    <!-- Custom styles for this page -->
    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+   <script src="vendor/jquery/jquery.min.js"></script>
+
+
 
 </head>
 
@@ -85,7 +88,7 @@ if( $sessionStatus == false) {
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
-               <a class="nav-link" href="accesoris_type.php">
+               <a class="nav-link" href="accessories.php">
                   <i class="fas fa-fw fa-table"></i>
                   <span>Data Jenis Aksesoris</span>
                </a>
@@ -150,7 +153,12 @@ if( $sessionStatus == false) {
                               <form action="action_insert_product.php" method="post" enctype="multipart/form-data">
                                  <div class="form-group p-2 mb-3 shadow-sm">
                                     <label for="foto">Foto</label>
-                                    <input type="file" id="foto" class="form-control" name="foto">
+                                    <div class="tambah-foto">
+                                       <input type="file" id="foto" class="form-control mb-2" name="foto1">
+                                     </div>
+                                    <span class="btn btn-primary btn-sm btn-tambah">
+                                       <i class="fa fa-plus"></i> Tambah Foto
+                                    </span>
                                  </div>
                                  <div class="form-group p-2 mb-3 shadow-sm">
                                     <label for="nama">Nama</label>
@@ -311,8 +319,16 @@ if( $sessionStatus == false) {
    </div>
 
 
+
+   <script>
+      $(document).ready(function(){
+         $(".btn-tambah").on("click", function(){
+            $(".tambah-foto").append("<input type='file' id='foto' class='form-control mb-2' name='foto[]'>");
+         });
+      });
+   </script>
+
    <!-- Bootstrap core JavaScript-->
-   <script src="vendor/jquery/jquery.min.js"></script>
    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
    <!-- Core plugin JavaScript-->

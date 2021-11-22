@@ -36,7 +36,7 @@ if ( $error == 1 )  {
 
 
 // Mengambil data file upload
-$files = $_FILES['foto'];
+$files = $_FILES['foto1'];
 $path = "penyimpanan/";
 
 // Menangani file upload
@@ -60,14 +60,19 @@ $query =
    " INSERT INTO tb_produk
    (id_kategori, nama, foto, id_jenis_aksesoris, motif, harga, stok, deskripsi)
    VALUES
-   ('{$id_kategori}', '{$nama}', '{$filepath}', '{$id_jenis_aksesoris}', '{$motif}', '{$harga}', '{$stok}', '{$deskripsi}');";
+   ('{$id_kategori}', '{$nama}', '{$filepath}', '{$id_jenis_aksesoris}', '{$motif}', '{$harga}', '{$stok}', '{$deskripsi}')";
 
 // Mengeksekusi MySQL Query
 $insert = mysqli_query($mysqli, $query);
 
 // Menangani ketika ada error pada saat eksekusi query
 if ( $insert == false ) {
-    echo "Error dalam menambahkan data. <a href ='insert_product.php'>Kembali</a>";
+    echo "
+    <script>
+         alert('Kategori / Jenis Aksesoris Belum Dipilih!');
+         window.location.href = 'insert_product.php';
+   </script>"
+   ;
 }
 else {
    echo "

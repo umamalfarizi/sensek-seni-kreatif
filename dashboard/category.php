@@ -1,3 +1,18 @@
+<?php
+
+require_once ("connection.php");
+
+require_once ("session_check.php");
+
+if( $sessionStatus == false) {
+   header("Location: login.php");
+}
+
+$query = "SELECT * FROM tb_kategori";
+$result = mysqli_query($mysqli, $query);
+
+?>
+
 <!DOCTYPE html>
 <head>
 
@@ -7,7 +22,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Data Kategori</title>
+    <title>Admin - Data Produk</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,17 +38,17 @@
 
 </head>
 
-   <body id="page-top">
-      <!-- Page Wrapper -->
-      <div id="wrapper">
-         <!-- Sidebar -->
-         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-               <div class="sidebar-brand-icon rotate-n-15">
-                  <i class="fas fa-laugh-wink"></i>
-               </div>
-               <div class="sidebar-brand-text mx-3">Bale Creative</div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">Seni Kreatif</div>
             </a>
 
             <!-- Divider -->
@@ -41,10 +56,10 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-               <a class="nav-link" href="index.php">
-                  <i class="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Dasbor</span>
-               </a>
+            <a class="nav-link" href="index.php">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dasbor</span>
+            </a>
             </li>
             
             <!-- Divider -->
@@ -52,10 +67,10 @@
 
             <!-- Nav Item - produk -->
             <li class="nav-item">
-               <a class="nav-link" href="product.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Produk</span>
-               </a>
+            <a class="nav-link" href="product.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Produk</span>
+            </a>
             </li>
 
             <!-- Divider -->
@@ -63,10 +78,10 @@
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item active">
-               <a class="nav-link" href="category.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Kategori</span>
-               </a>
+            <a class="nav-link" href="category.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Kategori</span>
+            </a>
             </li>
 
 
@@ -75,10 +90,10 @@
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
-               <a class="nav-link" href="accesoris_type.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Jenis Aksesoris</span>
-               </a>
+            <a class="nav-link" href="accessories.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Jenis Aksesoris</span>
+            </a>
             </li>
 
             <!-- Divider -->
@@ -86,98 +101,82 @@
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-         </ul>
-         <!-- End of Sidebar -->
+        </ul>
+        <!-- End of Sidebar -->
 
-         <!-- Content Wrapper -->
-         <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
             <div id="content">
-               <!-- Topbar -->
-               <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                  <!-- Sidebar Toggle (Topbar) -->
-                  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                     <i class="fa fa-bars"></i>
-                  </button>
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
 
-                  <!-- Topbar Navbar -->
-                  <ul class="navbar-nav ml-auto">
-                     <!-- Nav Item - User Information -->
-                     <li class="nav-item dropdown no-arrow">
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span class="mr-2 d-none d-lg-inline text-gray-600 small">Umam Alfarizi</span>
-                           <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $sessionName; ?></span>
+                        <img class="img-profile rounded-circle" src="penyimpanan/profile.jpg" />
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                           <a class="dropdown-item" href="#">
-                              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                              Profil
-                           </a>
-                           <a class="dropdown-item" href="#">
-                              <i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
-                              Daftarkan admin
-                           </a>
-                           <div class="dropdown-divider"></div>
-                           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                              Keluar
-                           </a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#daftarModal">
+                            <i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Daftarkan Admin
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Keluar
+                        </a>
                         </div>
-                     </li>
-                  </ul>
-               </nav>
-               <!-- End of Topbar -->
+                    </li>
+                </ul>
+            </nav>
+            <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                            <a href="insert_produk.php" class="btn btn-sm btn-primary"><i></i> Tambah Data</a>
+                            <h5 class="m-0 font-weight-bold text-primary">Data Kategori
+                            <a href="insert_category.php" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i> Tambah Data</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Jumlah Produk</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
+                                        <?php
+                                        $i=1;
+                                        foreach($result as $kategori) :
+                                        ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td><?= $i++; ?></td>
+                                            <td><?= $kategori['nama']; ?></td>
+                                            <td>15</td>
+                                            <td>
+                                                <a href="update_category.php?id_kategori=<?=$kategori['id_kategori'];?>" class="btn btn-success btn-sm my-2"><i class="fa fa-edit"></i></a>
+                                                <a href="delete_category.php?id_kategori=<?=$kategori['id_kategori'];?>" onclick=" return confirm_delete()" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
                                         </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -194,7 +193,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Bale Creative 2020</span>
+                        <span>Copyright &copy; Seni Kreatif 2021</span>
                     </div>
                 </div>
             </footer>
@@ -217,19 +216,67 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Keluar?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Tekan tombol Logout di bawah untuk mengakhiri sesi anda.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn border-primary text-primary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary" href="action_logout.php">Logout</a>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!-- Daftar Modal-->
+    <div class="modal fade" id="daftarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="action_register2.php" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Daftarkan Admin Baru</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mb2">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" class="form-control" name="nama" required>
+                    </div>
+                    <div class="form-group mb2">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="form-group mb2">
+                        <label for="password">Kata Sandi</label>
+                        <input type="password" id="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="form-group mb2">
+                        <label for="re-password">Kata Sandi</label>
+                        <input type="password" id="re-password" class="form-control" name="re-password" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn border-primary text-primary" type="button" data-dismiss="modal">Keluar</button>
+                    <input type="submit" value="Daftar" class="btn btn-primary">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        function confirm_delete(){
+            return confirm("Jika Anda menghapus kategori ini, maka semua produknya juga akan terhapus. Anda yakin?");
+        }
+    </script>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

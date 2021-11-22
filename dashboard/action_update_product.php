@@ -5,7 +5,7 @@ require_once("connection.php");
 // Mendapatkan data id produk
 if ( isset($_POST["id_produk"]) ) $id = $_POST["id_produk"];
 else {
-    echo "id produk tidak Ditemukan! <a href='update_produk.php?id_produk?={$id}'></a>";
+    echo "id produk tidak Ditemukan! <a href='update_product.php?id_produk?={$id}'></a>";
     exit();
 }
 

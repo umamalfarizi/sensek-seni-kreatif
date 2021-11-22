@@ -135,7 +135,7 @@ foreach ( $result3 as $jenis) {
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
-               <a class="nav-link" href="accesoris_type.php">
+               <a class="nav-link" href="accessories.php">
                   <i class="fas fa-fw fa-table"></i>
                   <span>Data Jenis Aksesoris</span>
                </a>
