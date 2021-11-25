@@ -22,7 +22,7 @@ $result = mysqli_query($mysqli, $query);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Data Produk</title>
+    <title>Admin - Data Kategori</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,7 +48,7 @@ $result = mysqli_query($mysqli, $query);
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Seni Kreatif</div>
+            <div class="sidebar-brand-text mx-3"> SB Admin <sup>2</sup> </div>
             </a>
 
             <!-- Divider -->
@@ -65,22 +65,22 @@ $result = mysqli_query($mysqli, $query);
             <!-- Divider -->
             <hr class="sidebar-divider" />
 
+            <!-- Nav Item - Kategori -->
+            <li class="nav-item active">
+            <a class="nav-link" href="category.php">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Data Kategori</span>
+            </a>
+            </li>
+            
+            <!-- Divider -->
+            <hr class="sidebar-divider" />
+
             <!-- Nav Item - produk -->
             <li class="nav-item">
             <a class="nav-link" href="product.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Produk</span>
-            </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
-
-            <!-- Nav Item - Kategori -->
-            <li class="nav-item active">
-            <a class="nav-link" href="category.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Data Kategori</span>
             </a>
             </li>
 
@@ -91,7 +91,7 @@ $result = mysqli_query($mysqli, $query);
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
             <a class="nav-link" href="accessories.php">
-                <i class="fas fa-fw fa-table"></i>
+                <i class="fas fa-fw fa-clipboard-list"></i>
                 <span>Data Jenis Aksesoris</span>
             </a>
             </li>
@@ -164,8 +164,8 @@ $result = mysqli_query($mysqli, $query);
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $i=1;
-                                        foreach($result as $kategori) :
+                                            $i=1;
+                                            foreach($result as $kategori) :
                                         ?>
                                         <tr>
                                             <td><?= $i++; ?></td>

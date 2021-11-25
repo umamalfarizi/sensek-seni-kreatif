@@ -29,8 +29,6 @@ if ( isset($_POST['kategori']) ) $id_kategori = $_POST['kategori'];
 
 if ( isset($_POST['jenis_aksesoris']) ) $id_jenis_aksesoris = $_POST['jenis_aksesoris'];
 
-if ( isset($_POST['motif']) ) $motif = htmlspecialchars( ucwords($_POST['motif']) );
-
 if ( isset($_POST['harga']) ) $harga = $_POST['harga'];
 
 if ( isset($_POST['stok']) ) $stok = $_POST['stok'];
@@ -67,7 +65,6 @@ $query = "UPDATE tb_produk SET
         nama = '{$nama}',
         foto = '{$filepath}',
         id_jenis_aksesoris = '{$id_jenis_aksesoris}',
-        motif = '{$motif}',
         harga = '{$harga}',
         stok = '{$stok}',
         deskripsi = '{$deskripsi}'

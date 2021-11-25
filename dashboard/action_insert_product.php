@@ -15,9 +15,6 @@ else $error = 1;
 if ( isset($_POST['jenis_aksesoris']) ) $id_jenis_aksesoris = $_POST['jenis_aksesoris'];
 else $error = 1;
 
-if ( isset($_POST['motif']) ) $motif = htmlspecialchars( ucwords($_POST['motif']) );
-else $error = 1;
-
 if ( isset($_POST['harga']) ) $harga = $_POST['harga'];
 else $error = 1;
 
@@ -36,7 +33,7 @@ if ( $error == 1 )  {
 
 
 // Mengambil data file upload
-$files = $_FILES['foto1'];
+$files = $_FILES['foto'];
 $path = "penyimpanan/";
 
 // Menangani file upload
@@ -58,9 +55,9 @@ if ( $upload != true && $filepath != "") {
 // Menyiapkan Query MySQL untuk dieksekusi
 $query = 
    " INSERT INTO tb_produk
-   (id_kategori, nama, foto, id_jenis_aksesoris, motif, harga, stok, deskripsi)
+   (id_kategori, nama, foto, id_jenis_aksesoris, harga, stok, deskripsi)
    VALUES
-   ('{$id_kategori}', '{$nama}', '{$filepath}', '{$id_jenis_aksesoris}', '{$motif}', '{$harga}', '{$stok}', '{$deskripsi}')";
+   ('{$id_kategori}', '{$nama}', '{$filepath}', '{$id_jenis_aksesoris}', '{$harga}', '{$stok}', '{$deskripsi}')";
 
 // Mengeksekusi MySQL Query
 $insert = mysqli_query($mysqli, $query);

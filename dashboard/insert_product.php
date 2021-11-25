@@ -43,10 +43,10 @@ if( $sessionStatus == false) {
          <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-               <div class="sidebar-brand-icon rotate-n-15">
-                  <i class="fas fa-laugh-wink"></i>
-               </div>
-               <div class="sidebar-brand-text mx-3">Seni Kreatif</div>
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3"> SB Admin <sup>2</sup> </div>
             </a>
 
             <!-- Divider -->
@@ -54,10 +54,21 @@ if( $sessionStatus == false) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-               <a class="nav-link" href="index.php">
-                  <i class="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Dasbor</span>
-               </a>
+            <a class="nav-link" href="index.php">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dasbor</span>
+            </a>
+            </li>
+            
+            <!-- Divider -->
+            <hr class="sidebar-divider" />
+
+            <!-- Nav Item - Kategori -->
+            <li class="nav-item">
+            <a class="nav-link" href="category.php">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Data Kategori</span>
+            </a>
             </li>
             
             <!-- Divider -->
@@ -65,21 +76,10 @@ if( $sessionStatus == false) {
 
             <!-- Nav Item - produk -->
             <li class="nav-item active">
-               <a class="nav-link" href="product.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Produk</span>
-               </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
-
-            <!-- Nav Item - Kategori -->
-            <li class="nav-item">
-               <a class="nav-link" href="category.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Kategori</span>
-               </a>
+            <a class="nav-link" href="product.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Produk</span>
+            </a>
             </li>
 
 
@@ -88,10 +88,10 @@ if( $sessionStatus == false) {
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
-               <a class="nav-link" href="accessories.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Jenis Aksesoris</span>
-               </a>
+            <a class="nav-link" href="accessories.php">
+                <i class="fas fa-fw fa-clipboard-list"></i>
+                <span>Data Jenis Aksesoris</span>
+            </a>
             </li>
 
             <!-- Divider -->
@@ -152,15 +152,6 @@ if( $sessionStatus == false) {
                            <div class="p-1">
                               <form action="action_insert_product.php" method="post" enctype="multipart/form-data">
                                  <div class="form-group p-2 mb-3 shadow-sm">
-                                    <label for="foto">Foto</label>
-                                    <div class="tambah-foto">
-                                       <input type="file" id="foto" class="form-control mb-2" name="foto1">
-                                     </div>
-                                    <span class="btn btn-primary btn-sm btn-tambah">
-                                       <i class="fa fa-plus"></i> Tambah Foto
-                                    </span>
-                                 </div>
-                                 <div class="form-group p-2 mb-3 shadow-sm">
                                     <label for="nama">Nama</label>
                                     <input type="text" id="nama" class="form-control" name="nama" placeholder="Nama produk" required>
                                  </div>
@@ -201,8 +192,8 @@ if( $sessionStatus == false) {
                                     </div>
                                  </div>
                                  <div class="form-group p-2 mb-3 shadow-sm">
-                                    <label for="motif">Motif</label>
-                                    <input type="text" id="motif" class="form-control" name="motif" placeholder="Motif produk" required>
+                                    <label for="foto">Foto</label>
+                                    <input type="file" id="foto" class="form-control" name="foto">
                                  </div>
                                  <div class="row">
                                     <div class="col-md-6">
@@ -220,7 +211,7 @@ if( $sessionStatus == false) {
                                  </div>
                                  <div class="form-group p-2 mb-4 shadow-sm">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea name="deskripsi" id="deskripsi"  class="form-control" cols="30" rows="3" placeholder="Tulis keterangan produk seperti warna, ukuran, kualitas, keunggulan.." required></textarea>
+                                    <textarea name="deskripsi" id="deskripsi"  class="form-control" cols="30" rows="3" placeholder="Tulis keterangan produk seperti motif, warna, ukuran, bahan, serta kualitas dan keunggulan" required></textarea>
                                  </div>
                                  <div class="text-end">
                                     <input type="submit"  name="submit" value="Tambah" class="btn btn-primary">
@@ -317,16 +308,6 @@ if( $sessionStatus == false) {
             </div>
       </div>
    </div>
-
-
-
-   <script>
-      $(document).ready(function(){
-         $(".btn-tambah").on("click", function(){
-            $(".tambah-foto").append("<input type='file' id='foto' class='form-control mb-2' name='foto[]'>");
-         });
-      });
-   </script>
 
    <!-- Bootstrap core JavaScript-->
    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

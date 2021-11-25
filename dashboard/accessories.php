@@ -5,7 +5,7 @@ require_once ("connection.php");
 require_once ("session_check.php");
 
 if( $sessionStatus == false) {
-   header("Location: login.php");
+header("Location: login.php");
 }
 
 $query = "SELECT * FROM tb_jenis_aksesoris";
@@ -48,7 +48,7 @@ $result = mysqli_query($mysqli, $query);
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Seni Kreatif</div>
+            <div class="sidebar-brand-text mx-3"> SB Admin <sup>2</sup> </div>
             </a>
 
             <!-- Divider -->
@@ -65,22 +65,22 @@ $result = mysqli_query($mysqli, $query);
             <!-- Divider -->
             <hr class="sidebar-divider" />
 
+            <!-- Nav Item - Kategori -->
+            <li class="nav-item">
+            <a class="nav-link" href="category.php">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Data Kategori</span>
+            </a>
+            </li>
+            
+            <!-- Divider -->
+            <hr class="sidebar-divider" />
+
             <!-- Nav Item - produk -->
             <li class="nav-item">
             <a class="nav-link" href="product.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Produk</span>
-            </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
-
-            <!-- Nav Item - Kategori -->
-            <li class="nav-item">
-            <a class="nav-link" href="category.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Data Kategori</span>
             </a>
             </li>
 
@@ -91,7 +91,7 @@ $result = mysqli_query($mysqli, $query);
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item active">
             <a class="nav-link" href="accessories.php">
-                <i class="fas fa-fw fa-table"></i>
+                <i class="fas fa-fw fa-clipboard-list"></i>
                 <span>Data Jenis Aksesoris</span>
             </a>
             </li>
@@ -122,20 +122,20 @@ $result = mysqli_query($mysqli, $query);
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $sessionName; ?></span>
-                        <img class="img-profile rounded-circle" src="penyimpanan/profile.jpg" />
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $sessionName; ?></span>
+                            <img class="img-profile rounded-circle" src="penyimpanan/profile.jpg" />
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#daftarModal">
-                            <i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Daftarkan Admin
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Keluar
-                        </a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#daftarModal">
+                                <i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Daftarkan Admin
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Keluar
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -148,7 +148,7 @@ $result = mysqli_query($mysqli, $query);
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Data Jeni Aksesoris
+                            <h5 class="m-0 font-weight-bold text-primary">Data JeniS Aksesoris
                             <a href="insert_accessories.php" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i> Tambah Data</a>
                         </div>
                         <div class="card-body">
@@ -164,8 +164,8 @@ $result = mysqli_query($mysqli, $query);
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $i=1;
-                                        foreach($result as $aksesoris) :
+                                            $i=1;
+                                            foreach($result as $aksesoris) :
                                         ?>
                                         <tr>
                                             <td><?= $i++; ?></td>

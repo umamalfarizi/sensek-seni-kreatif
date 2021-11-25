@@ -30,13 +30,13 @@ if( $sessionStatus == false) {
       <!-- Page Wrapper -->
       <div id="wrapper">
          <!-- Sidebar -->
-         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-               <div class="sidebar-brand-icon rotate-n-15">
-                  <i class="fas fa-laugh-wink"></i>
-               </div>
-               <div class="sidebar-brand-text mx-3">Seni Kreatif</div>
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3"> SB Admin <sup>2</sup> </div>
             </a>
 
             <!-- Divider -->
@@ -44,43 +44,44 @@ if( $sessionStatus == false) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-               <a class="nav-link" href="index.php">
-                  <i class="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Dasbor</span>
-               </a>
+            <a class="nav-link" href="index.php">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dasbor</span>
+            </a>
             </li>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider" />
+
+            <!-- Nav Item - Kategori -->
+            <li class="nav-item">
+            <a class="nav-link" href="category.php">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Data Kategori</span>
+            </a>
+            </li>
             
+            <!-- Divider -->
+            <hr class="sidebar-divider" />
+
             <!-- Nav Item - produk -->
             <li class="nav-item">
-               <a class="nav-link" href="product.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Produk</span>
-               </a>
+            <a class="nav-link" href="product.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Produk</span>
+            </a>
             </li>
-            
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
 
-            <!-- Nav Item - kategori -->
-            <li class="nav-item">
-               <a class="nav-link" href="category.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Kategori</span>
-               </a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider" />
 
-            <!-- Nav Item - Jenis aksesoris -->
+            <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
-               <a class="nav-link" href="accesoris_type.php">
-                  <i class="fas fa-fw fa-table"></i>
-                  <span>Data Jenis Aksesoris</span>
-               </a>
+            <a class="nav-link" href="accessories.php">
+                <i class="fas fa-fw fa-clipboard-list"></i>
+                <span>Data Jenis Aksesoris</span>
+            </a>
             </li>
 
             <!-- Divider -->
@@ -88,10 +89,10 @@ if( $sessionStatus == false) {
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-         </ul>
-         <!-- End of Sidebar -->
+        </ul>
+        <!-- End of Sidebar -->
 
          <!-- Content Wrapper -->
          <div id="content-wrapper" class="d-flex flex-column">
@@ -132,12 +133,89 @@ if( $sessionStatus == false) {
                <!-- Begin Page Content -->
                <div class="container-fluid">
                   <!-- Page Heading -->
-                  <div class="card shadow mb-4">
-                     <div class="card-header py-3">
-                           <h4 class="m-0 font-weight-bold text-primary">Dasbor</h4>
+                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                     <h1 class="h3 mb-0 text-gray-800">Selamat Datang, <?= $sessionName; ?> !</h1>
+                  </div>
+
+                  <!-- Content Row -->
+                  <div class="row">
+
+                     <!-- Earnings (Monthly) Card Example -->
+                     <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                           <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                 <div class="col mr-2">
+                                    <div class="font-weight-bold text-warning text-uppercase mb-1">
+                                       Kategori</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                       <?php 
+                                          $query = "SELECT COUNT(id_kategori) FROM tb_kategori";
+                                          $result = mysqli_query($mysqli, $query);
+                                          foreach( $result as $data ) {
+                                             echo $data["COUNT(id_kategori)"];
+                                          }
+                                       ?>
+                                    </div>
+                                 </div>
+                                 <div class="col-auto">
+                                    <i class="fas fa-list-alt fa-2x text-gray-300"></i>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                      </div>
-                     <div class="card-body">
-                           
+
+                     <!-- Earnings (Monthly) Card Example -->
+                     <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                           <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                 <div class="col mr-2">
+                                    <div class="font-weight-bold text-primary text-uppercase mb-1">
+                                       Jumlah Produk</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                       <?php 
+                                          $query = "SELECT COUNT(id_produk) FROM tb_produk";
+                                          $result = mysqli_query($mysqli, $query);
+                                          foreach( $result as $data ) {
+                                             echo $data["COUNT(id_produk)"];
+                                          }
+                                       ?>
+                                    </div>
+                                 </div>
+                                 <div class="col-auto">
+                                    <i class="fas fa-table fa-2x text-gray-300"></i>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- Pending Requests Card Example -->
+                     <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                           <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                 <div class="col mr-2">
+                                    <div class="font-weight-bold text-success text-uppercase mb-1">
+                                       Jenis Aksesoris</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                       <?php 
+                                          $query = "SELECT COUNT(id_jenis_aksesoris) FROM tb_jenis_aksesoris";
+                                          $result = mysqli_query($mysqli, $query);
+                                          foreach( $result as $data ) {
+                                             echo $data["COUNT(id_jenis_aksesoris)"];
+                                          }
+                                       ?>
+                                    </div>
+                                 </div>
+                                 <div class="col-auto">
+                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -224,21 +302,22 @@ if( $sessionStatus == false) {
       </div>
    </div>
 
-      <!-- Bootstrap core JavaScript-->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Bootstrap core JavaScript-->
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-      <!-- Core plugin JavaScript-->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+   <!-- Core plugin JavaScript-->
+   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-      <!-- Custom scripts for all pages-->
-      <script src="js/sb-admin-2.min.js"></script>
+   <!-- Custom scripts for all pages-->
+   <script src="js/sb-admin-2.min.js"></script>
 
-      <!-- Page level plugins -->
-      <script src="vendor/chart.js/Chart.min.js"></script>
+   <!-- Page level plugins -->
+   <script src="vendor/chart.js/Chart.min.js"></script>
 
-      <!-- Page level custom scripts -->
-      <script src="js/demo/chart-area-demo.js"></script>
-      <script src="js/demo/chart-pie-demo.js"></script>
+   <!-- Page level custom scripts -->
+   <script src="js/demo/chart-area-demo.js"></script>
+   <script src="js/demo/chart-pie-demo.js"></script>
+   
    </body>
 </html>

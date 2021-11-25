@@ -48,7 +48,7 @@ $result = mysqli_query($mysqli, $query);
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Seni Kreatif</div>
+            <div class="sidebar-brand-text mx-3"> SB Admin <sup>2</sup> </div>
             </a>
 
             <!-- Divider -->
@@ -65,22 +65,22 @@ $result = mysqli_query($mysqli, $query);
             <!-- Divider -->
             <hr class="sidebar-divider" />
 
+            <!-- Nav Item - Kategori -->
+            <li class="nav-item">
+            <a class="nav-link" href="category.php">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Data Kategori</span>
+            </a>
+            </li>
+            
+            <!-- Divider -->
+            <hr class="sidebar-divider" />
+
             <!-- Nav Item - produk -->
             <li class="nav-item active">
             <a class="nav-link" href="product.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Produk</span>
-            </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
-
-            <!-- Nav Item - Kategori -->
-            <li class="nav-item">
-            <a class="nav-link" href="category.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Data Kategori</span>
             </a>
             </li>
 
@@ -91,7 +91,7 @@ $result = mysqli_query($mysqli, $query);
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
             <a class="nav-link" href="accessories.php">
-                <i class="fas fa-fw fa-table"></i>
+                <i class="fas fa-fw fa-clipboard-list"></i>
                 <span>Data Jenis Aksesoris</span>
             </a>
             </li>
@@ -101,7 +101,7 @@ $result = mysqli_query($mysqli, $query);
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+               <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
         <!-- End of Sidebar -->
@@ -159,7 +159,6 @@ $result = mysqli_query($mysqli, $query);
                                             <th>No</th>
                                             <th>Foto</th>
                                             <th>Nama</th>
-                                            <th>Motif</th>
                                             <th>Harga(Rp)</th>
                                             <th>Stok</th>
                                             <th>Aksi</th>
@@ -177,7 +176,6 @@ $result = mysqli_query($mysqli, $query);
                                             <td><?= $i++; ?></td>
                                             <td><img src="<?= $produk['foto']; ?>" style="height: 100px;"></td>
                                             <td><?= $produk['nama']; ?></td>
-                                            <td><?= $produk['motif']; ?></td>
                                             <td><?= number_format($produk['harga']); ?></td>
                                             <td><?= $produk['stok']; ?></td>
                                             <td>
