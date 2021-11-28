@@ -86,9 +86,9 @@ foreach ( $result3 as $jenis) {
       <!-- Page Wrapper -->
       <div id="wrapper">
          <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -107,7 +107,7 @@ foreach ( $result3 as $jenis) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item">
@@ -118,7 +118,7 @@ foreach ( $result3 as $jenis) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - produk -->
             <li class="nav-item active">
@@ -130,13 +130,25 @@ foreach ( $result3 as $jenis) {
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
             <a class="nav-link" href="accessories.php">
                 <i class="fas fa-fw fa-clipboard-list"></i>
                 <span>Data Jenis Aksesoris</span>
+            </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+
+            <!-- Nav Item - Tentang Kami -->
+            <li class="nav-item">
+            <a class="nav-link" href="us.php">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>SEO dan Kontak</span>
             </a>
             </li>
 
@@ -224,7 +236,7 @@ foreach ( $result3 as $jenis) {
                                        <tr>
                                           <th>Harga</th>
                                           <td>:</td>
-                                          <td>Rp<?= number_format($harga); ?>,-</td>
+                                          <td>Rp <?= number_format($harga); ?></td>
                                        </tr>
                                        <tr>
                                           <th>Stok</th>

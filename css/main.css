@@ -217,14 +217,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .header-v4 .container-menu-desktop {
-   height: 124px;
-}
-
-/*==================================================================
-[ Top bar ]*/
-.top-bar {
-   height: 40px;
-   background-color: #222;
+   height: 85px;
 }
 
 /*---------------------------------------------*/
@@ -620,7 +613,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .header-v4 .fix-menu-desktop.container-menu-desktop {
-   height: 110px;
+   height: 70px;
 }
 
 /*---------------------------------------------*/
@@ -1867,10 +1860,13 @@ input.num-product::-webkit-inner-spin-button {
 [ Modal1 ]*/
 .wrap-modal1 {
    position: fixed;
-   width: 100%;
+   width: 80%;
    height: 100vh;
    top: 0;
    left: 0;
+   right: 0;
+   bottom: 0;
+   margin: auto;
    z-index: 9000;
    overflow: auto;
 
@@ -3301,6 +3297,9 @@ input.num-product::-webkit-inner-spin-button {
 /*//////////////////////////////////////////////////////////////////
 [ LG ]*/
 @media (max-width: 991px) {
+   .wrap-modal1 {
+      width: 100%;
+   }
    .m-0-lg {
       margin: 0;
    }

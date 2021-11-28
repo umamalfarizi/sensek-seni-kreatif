@@ -2,12 +2,6 @@
 
 require_once("dashboard/connection.php");
 
-$query = "SELECT * FROM tb_produk";
-$result = mysqli_query( $mysqli, $query );
-
-
-
-
 ?>
 
 
@@ -18,7 +12,7 @@ $result = mysqli_query( $mysqli, $query );
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content="Mennjual Kain Tenun dan Produk Turunannya">
-      <meta name="keyword" content="toko, kain tenun, songket, tenun murah, tenun tradisional, sasak">
+      <meta name="keywords" content="toko, kain tenun, songket, tenun murah, tenun tradisional, sasak">
       <meta name="author" content="Seni Kreatif">
       <meta name="robots" content="index, follow">
 
@@ -61,21 +55,6 @@ $result = mysqli_query( $mysqli, $query );
       <header>
          <!-- Header desktop -->
          <div class="container-menu-desktop">
-            <div class="top-bar">
-               <div class="content-topbar flex-sb-m h-full container">
-                  <div class="left-top-bar">Free shipping for standard order over $100</div>
-
-                  <div class="right-top-bar flex-w h-full">
-                     <a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
-
-                     <a href="#" class="flex-c-m trans-04 p-lr-25"> My Account </a>
-
-                     <a href="#" class="flex-c-m trans-04 p-lr-25"> EN </a>
-
-                     <a href="#" class="flex-c-m trans-04 p-lr-25"> USD </a>
-                  </div>
-               </div>
-            </div>
             <div class="wrap-menu-desktop">
                <nav class="limiter-menu-desktop container">
                   <!-- Logo desktop -->
@@ -95,11 +74,11 @@ $result = mysqli_query( $mysqli, $query );
                         </li>
 
                         <li>
-                           <a href="about.php">About</a>
+                           <a href="about.php">About Us</a>
                         </li>
 
                         <li>
-                           <a href="contact.php">Contact</a>
+                           <a href="contact.php">Contact Us</a>
                         </li>
                      </ul>
                   </div>
@@ -156,11 +135,11 @@ $result = mysqli_query( $mysqli, $query );
                </li>
 
                <li>
-                  <a href="about.php">About</a>
+                  <a href="about.php">About Us</a>
                </li>
 
                <li>
-                  <a href="contact.php">Contact</a>
+                  <a href="contact.php">Contact Us</a>
                </li>
             </ul>
          </div>
@@ -169,14 +148,14 @@ $result = mysqli_query( $mysqli, $query );
          <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
             <div class="container-search-header">
                <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-                  <img src="images/icons/icon-close2.png" alt="CLOSE" />
+                  <img src="images/icons/icon-close2.png" alt="CLOSE">
                </button>
 
-               <form class="wrap-search-header flex-w p-l-15">
+               <form class="wrap-search-header flex-w p-l-15" action="product.php">
                   <button class="flex-c-m trans-04">
                      <i class="zmdi zmdi-search"></i>
                   </button>
-                  <input class="plh3" type="text" name="search" placeholder="Cari produk..." />
+                  <input class="plh3" type="text" name="search" placeholder="Cari Produk.." autocomplete="off">
                </form>
             </div>
          </div>
@@ -316,17 +295,19 @@ $result = mysqli_query( $mysqli, $query );
 
             <div class="flex-w flex-sb-m p-b-52">
                <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                  <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">All Products</button>
+                  <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">Semua</button>
 
-                  <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">Women</button>
+                  <?php
+                  
+                     $query = "SELECT * FROM tb_kategori";
+                     $result = mysqli_query($mysqli, $query);
+                     foreach( $result as $ktg ) :
+                  
+                  ?>
 
-                  <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">Men</button>
+                     <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".<?= $ktg['id_kategori']; ?>"><?= $ktg['nama']; ?></button>
 
-                  <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">Bag</button>
-
-                  <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">Shoes</button>
-
-                  <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">Watches</button>
+                  <?php endforeach; ?>
                </div>
 
                <div class="flex-w flex-c-m m-tb-10">
@@ -343,15 +324,18 @@ $result = mysqli_query( $mysqli, $query );
                      <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                         <i class="zmdi zmdi-search"></i>
                      </button>
-
-                     <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Cari produk" />
-                  </div>
+                     <form action="product.php">
+                        <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search" placeholder="Cari produk.." autocomplete="off">
+                     </form>
+                  </div>	
                </div>
             </div>
 
             <div class="row isotope-grid">
 
             <?php 
+            $query = "SELECT * FROM tb_produk ORDER BY id_produk DESC LIMIT 12";
+            $result = mysqli_query( $mysqli, $query );
             foreach( $result as $produk ) :
                $idProduk = $produk['id_produk'];
                $nama = $produk['nama'];
@@ -362,7 +346,7 @@ $result = mysqli_query( $mysqli, $query );
                $stok = $produk['stok'];
                $deskripsi = $produk['deskripsi'];
             ?>
-               <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+               <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?= $idKategori; ?>">
                   <!-- Block2 -->
                   <div class="block2">
                      <div class="block2-pic hov-img0">
@@ -533,48 +517,47 @@ $result = mysqli_query( $mysqli, $query );
       </div>
 
       <!-- Modal1 -->
-      <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+      <div class="wrap-modal1 js-modal1 p-t-50 p-b-20">
          <div class="overlay-modal1 js-hide-modal1"></div>
 
          <div class="container">
-            <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+            <div class="bg0 p-t-35 p-b-20 p-lr-15-lg how-pos3-parent">
                <button class="how-pos3 hov3 trans-04 js-hide-modal1">
                   <img src="images/icons/icon-close.png" alt="CLOSE" />
                </button>
 
                <div class="row">
-                  <div class="col-md-6 col-lg-7 p-b-30">
-                     <div class="p-l-25 p-r-30 p-lr-0-lg">
-                        <div class="slick3 gallery-lb">
-                           <div class="tes">
-                              <img src="" alt="IMG-PRODUCT" id="foto" style="width: 99%;"/>
-                           </div>
-                        </div>
+                  <div class="col-md-6 p-b-20">
+                     <div class="p-l-35 p-r-25 p-lr-0-lg">
+                        <img src="" alt="IMG-PRODUCT" id="foto" style="width: 100%;"/>
                      </div>
                   </div>
 
-                  <div class="col-md-6 col-lg-5 p-b-30">
+                  <div class="col-md-6  p-b-20">
                      <div class="p-r-50 p-t-5 p-lr-0-lg">
-                        <h4 class="mtext-105 cl2 js-name-detail p-b-14" id="nama"></h4>
+
+                        <?php $nama = '<span id="nama"></span>'; ?>
+
+                        <h4 class="mtext-105 cl2 js-name-detail p-b-14"><?= $nama; ?></h4>
 
                         <span class="mtext-106 cl2" id="harga"></span>
 
-                        <div class="bor10 m-t-50 p-t-43 p-b-40">
+                        <div class="bor10 m-t-25 p-t-33 p-b-20">
                            <!-- Tab01 -->
                            <div class="tab01">
                               <!-- Nav tabs -->
                               <ul class="nav nav-tabs" role="tablist">
-                                 <li class="nav-item p-b-10">
+                                 <li class="nav-item p-b-5">
                                     <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Deskripsi</a>
                                  </li>
 
-                                 <li class="nav-item p-b-10">
+                                 <li class="nav-item p-b-5">
                                     <a class="nav-link" data-toggle="tab" href="#information" role="tab">Info Tambahan</a>
                                  </li>
                               </ul>
 
                               <!-- Tab panes -->
-                              <div class="tab-content p-t-43">
+                              <div class="tab-content p-t-25">
                                  <!-- - -->
                                  <div class="tab-pane fade show active" id="description" role="tabpanel">
                                     <div class="how-pos2 p-lr-15-md">
@@ -587,10 +570,10 @@ $result = mysqli_query( $mysqli, $query );
                                  <div class="tab-pane fade" id="information" role="tabpanel">
                                     <div class="row">
                                        <div class="col-sm-10 m-lr-auto">
-                                          <ul class="p-lr-28 p-lr-15-sm">
+                                          <ul class="p-lr-25 p-lr-15-sm">
                                              <li class="flex-w flex-t p-b-7">
                                                 <span class="stext-102 cl3 size-205"> Jenis Kain </span>
-
+                                             
                                                 <span class="stext-102 cl6 size-206" id="kategori"></span>
                                              </li>
 
@@ -601,7 +584,7 @@ $result = mysqli_query( $mysqli, $query );
                                              </li>
 
                                              <li class="flex-w flex-t p-b-7">
-                                                <span class="stext-102 cl3 size-205"> Tersedia </span>
+                                                <span class="stext-102 cl3 size-205"> Stok </span>
 
                                                 <span class="stext-102 cl6 size-206" id="stok"></span>
                                              </li>
@@ -613,11 +596,9 @@ $result = mysqli_query( $mysqli, $query );
                            </div>
                         </div>
 
-                        <div class="p-t-33">
-                           <div class="flex-w flex-r-m p-b-10">
-                              <div class="size-204 flex-w flex-m respon6-next">
-                                 <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">Add to cart</button>
-                              </div>
+                        <div class="p-t-30">
+                           <div style="justify-content: center; align-items:center; text-align:center;">
+                              <a href="" class="flex-c-m stext-103 cl2 size-105 bg2 bor2 hov-btn1 p-lr-15 trans-04">Pesan Via Whatsapp <i class="fa fa-whatsapp m-l-5"></i> </a>
                            </div>
                         </div>
                      </div>
@@ -726,27 +707,26 @@ $result = mysqli_query( $mysqli, $query );
             });
          });
       </script>
+
       <script>
-
-      $(document).ready(function() {
-         $(document).on('click', '#tes', function(){
-            var nama = $(this).data('nama');
-            var harga = $(this).data('harga');
-            var idkategori = $(this).data('idkategori');
-            var idjenis = $(this).data('idjenisaksesoris');
-            var stok = $(this).data('stok');
-            var deskripsi = $(this).data('deskripsi');
-            var foto = $(this).data('foto');
-            $('#nama').text(nama);
-            $('#kategori').text(idkategori);
-            $('#aksesoris').text(idjenis);
-            $('#harga').text('Rp ' + harga);
-            $('#stok').text(stok);
-            $('#foto').attr('src', 'dashboard/'+foto);
-            $('#deskripsi').text(deskripsi);
+         $(document).ready(function() {
+            $(document).on('click', '#tes', function(){
+               var nama = $(this).data('nama');
+               var harga = $(this).data('harga');
+               var idkategori = $(this).data('idkategori');
+               var idjenis = $(this).data('idjenisaksesoris');
+               var stok = $(this).data('stok');
+               var deskripsi = $(this).data('deskripsi');
+               var foto = $(this).data('foto');
+               $('#nama').text(nama);
+               $('#kategori').text(idkategori);
+               $('#aksesoris').text(idjenis);
+               $('#harga').text('Rp ' + harga);
+               $('#stok').text(stok);
+               $('#foto').attr('src', 'dashboard/'+foto);
+               $('#deskripsi').text(deskripsi);
+            })
          })
-      })
-
       </script>
       <!--===============================================================================================-->
       <script src="js/main.js"></script>

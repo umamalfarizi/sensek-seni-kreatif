@@ -1,3 +1,56 @@
+<?php 
+
+require_once('dashboard/connection.php');
+
+// get id
+/// Mendapatkan data id
+if ( isset($_GET["id_produk"]) ) $id = $_GET["id_produk"];
+else header('Location: product.php');
+
+$query = "SELECT * FROM tb_produk WHERE id_produk = '{$id}'";
+
+$result = mysqli_query( $mysqli, $query);
+
+foreach ( $result as $produk) {
+
+   $id_produk = $produk['id_produk'];
+   $foto = $produk["foto"];
+   $id_kategori = $produk["id_kategori"];
+   $nama = $produk["nama"];
+   $id_jenis = $produk["id_jenis_aksesoris"];
+   $harga = $produk["harga"];
+   $stok = $produk["stok"];
+   $deskripsi = $produk["deskripsi"];
+}
+
+
+$query2 = "SELECT * FROM tb_kategori WHERE id_kategori = '{$id_kategori}'";
+
+$result2 = mysqli_query( $mysqli, $query2);
+
+
+foreach ( $result2 as $kategori) {
+
+   $id_kategori = $kategori['id_kategori'];
+   $nama2 = $kategori["nama"];
+}
+
+
+$query3 = "SELECT * FROM tb_jenis_aksesoris WHERE id_jenis_aksesoris = '{$id_jenis}'";
+
+$result3 = mysqli_query( $mysqli, $query3);
+
+
+foreach ( $result3 as $jenis) {
+
+   $id_jenis = $jenis['id_jenis_aksesoris'];
+   $nama3 = $jenis["nama"];
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -59,11 +112,11 @@
                         </li>
 
                         <li>
-                           <a href="about.php">About</a>
+                           <a href="about.php">About Us</a>
                         </li>
 
                         <li>
-                           <a href="contact.php">Contact</a>
+                           <a href="contact.php">Contact Us</a>
                         </li>
                      </ul>
                   </div>
@@ -120,11 +173,11 @@
                </li>
 
                <li>
-                  <a href="about.php">About</a>
+                  <a href="about.php">About Us</a>
                </li>
 
                <li>
-                  <a href="contact.php">Contact</a>
+                  <a href="contact.php">Contact Us</a>
                </li>
             </ul>
          </div>
@@ -133,14 +186,14 @@
          <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
             <div class="container-search-header">
                <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-                  <img src="images/icons/icon-close2.png" alt="CLOSE" />
+                  <img src="images/icons/icon-close2.png" alt="CLOSE">
                </button>
 
-               <form class="wrap-search-header flex-w p-l-15">
+               <form class="wrap-search-header flex-w p-l-15" action="product.php">
                   <button class="flex-c-m trans-04">
                      <i class="zmdi zmdi-search"></i>
                   </button>
-                  <input class="plh3" type="text" name="search" placeholder="Cari produk..." />
+                  <input class="plh3" type="text" name="search" placeholder="Cari Produk.." autocomplete="off">
                </form>
             </div>
          </div>
@@ -155,11 +208,11 @@
             </a>
 
             <a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
-               Men
+               <?= $nama2; ?>
                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
             </a>
 
-            <span class="stext-109 cl4"> Lightweight Jacket </span>
+            <span class="stext-109 cl4"> <?= $nama; ?> </span>
          </div>
       </div>
 
@@ -167,138 +220,88 @@
       <section class="sec-product-detail bg0 p-t-65 p-b-60">
          <div class="container">
             <div class="row">
-               <div class="col-md-6 col-lg-7 p-b-30">
-                  <div class="p-l-25 p-r-30 p-lr-0-lg">
-                     <div class="wrap-slick3 flex-sb flex-w">
-                        <div class="wrap-slick3-dots"></div>
-                        <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
-
-                        <div class="slick3 gallery-lb">
-                           <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
-                              <div class="wrap-pic-w pos-relative">
-                                 <img src="images/product-detail-01.jpg" alt="IMG-PRODUCT" />
-
-                                 <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
-                                    <i class="fa fa-expand"></i>
-                                 </a>
-                              </div>
-                           </div>
-
-                           <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
-                              <div class="wrap-pic-w pos-relative">
-                                 <img src="images/product-detail-02.jpg" alt="IMG-PRODUCT" />
-
-                                 <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
-                                    <i class="fa fa-expand"></i>
-                                 </a>
-                              </div>
-                           </div>
-
-                           <div class="item-slick3" data-thumb="images/product-detail-03.jpg">
-                              <div class="wrap-pic-w pos-relative">
-                                 <img src="images/product-detail-03.jpg" alt="IMG-PRODUCT" />
-
-                                 <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
-                                    <i class="fa fa-expand"></i>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
+               <div class="col-md-6 p-b-20">
+                     <div class="p-l-35 p-r-25 p-lr-0-lg">
+                        <img src="dashboard/<?= $foto; ?>" alt="IMG-PRODUCT" style="width: 100%;"/>
                      </div>
                   </div>
-               </div>
 
-               <div class="col-md-6 col-lg-5 p-b-30">
-                  <div class="p-r-50 p-t-5 p-lr-0-lg">
-                     <h4 class="mtext-105 cl2 js-name-detail p-b-14">Lightweight Jacket</h4>
+                  <div class="col-md-6  p-b-20">
+                     <div class="p-r-50 p-t-5 p-lr-0-lg">
 
-                     <span class="mtext-106 cl2"> $58.79 </span>
+                        <h4 class="mtext-105 cl2 js-name-detail p-b-14"><?= $nama; ?></h4>
 
-                     <div class="bor10 m-t-50 p-t-43 p-b-40">
-                        <!-- Tab01 -->
-                        <div class="tab01">
-                           <!-- Nav tabs -->
-                           <ul class="nav nav-tabs" role="tablist">
-                              <li class="nav-item p-b-10">
-                                 <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a>
-                              </li>
+                        <span class="mtext-106 cl2">Rp <?= number_format($harga); ?></span>
 
-                              <li class="nav-item p-b-10">
-                                 <a class="nav-link" data-toggle="tab" href="#information" role="tab">Additional information</a>
-                              </li>
-                           </ul>
+                        <div class="bor10 m-t-25 p-t-33 p-b-20">
+                           <!-- Tab01 -->
+                           <div class="tab01">
+                              <!-- Nav tabs -->
+                              <ul class="nav nav-tabs" role="tablist">
+                                 <li class="nav-item p-b-5">
+                                    <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Deskripsi</a>
+                                 </li>
 
-                           <!-- Tab panes -->
-                           <div class="tab-content p-t-43">
-                              <!-- - -->
-                              <div class="tab-pane fade show active" id="description" role="tabpanel">
-                                 <div class="how-pos2 p-lr-15-md">
-                                    <p class="stext-102 cl6">
-                                       Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum
-                                       sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie.
-                                       Aenean tempor sit amet orci nec iaculis.
-                                    </p>
+                                 <li class="nav-item p-b-5">
+                                    <a class="nav-link" data-toggle="tab" href="#information" role="tab">Info Tambahan</a>
+                                 </li>
+                              </ul>
+
+                              <!-- Tab panes -->
+                              <div class="tab-content p-t-25">
+                                 <!-- - -->
+                                 <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                    <div class="how-pos2 p-lr-15-md">
+                                       <p class="stext-102 cl6">
+                                          <?= $deskripsi; ?>
+                                       </p>
+                                    </div>
                                  </div>
-                              </div>
 
-                              <!-- - -->
-                              <div class="tab-pane fade" id="information" role="tabpanel">
-                                 <div class="row">
-                                    <div class="col-sm-10 m-lr-auto">
-                                       <ul class="p-lr-28 p-lr-15-sm">
-                                          <li class="flex-w flex-t p-b-7">
-                                             <span class="stext-102 cl3 size-205"> Weight </span>
+                                 <!-- - -->
+                                 <div class="tab-pane fade" id="information" role="tabpanel">
+                                    <div class="row">
+                                       <div class="col-sm-10 m-lr-auto">
+                                          <ul class="p-lr-25 p-lr-15-sm">
+                                             <li class="flex-w flex-t p-b-7">
+                                                <span class="stext-102 cl3 size-205"> Jenis Kain </span>
+                                             
+                                                <span class="stext-102 cl6 size-206"><?= $nama2; ?></span>
+                                             </li>
 
-                                             <span class="stext-102 cl6 size-206"> 0.79 kg </span>
-                                          </li>
+                                             <li class="flex-w flex-t p-b-7">
+                                                <span class="stext-102 cl3 size-205"> Aksesoris </span>
 
-                                          <li class="flex-w flex-t p-b-7">
-                                             <span class="stext-102 cl3 size-205"> Dimensions </span>
+                                                <span class="stext-102 cl6 size-206"><?= $nama3; ?></span>
+                                             </li>
 
-                                             <span class="stext-102 cl6 size-206"> 110 x 33 x 100 cm </span>
-                                          </li>
+                                             <li class="flex-w flex-t p-b-7">
+                                                <span class="stext-102 cl3 size-205"> Stok </span>
 
-                                          <li class="flex-w flex-t p-b-7">
-                                             <span class="stext-102 cl3 size-205"> Materials </span>
-
-                                             <span class="stext-102 cl6 size-206"> 60% cotton </span>
-                                          </li>
-
-                                          <li class="flex-w flex-t p-b-7">
-                                             <span class="stext-102 cl3 size-205"> Color </span>
-
-                                             <span class="stext-102 cl6 size-206"> Black, Blue, Grey, Green, Red, White </span>
-                                          </li>
-
-                                          <li class="flex-w flex-t p-b-7">
-                                             <span class="stext-102 cl3 size-205"> Size </span>
-
-                                             <span class="stext-102 cl6 size-206"> XL, L, M, S </span>
-                                          </li>
-                                       </ul>
+                                                <span class="stext-102 cl6 size-206"><?= $stok; ?></span>
+                                             </li>
+                                          </ul>
+                                       </div>
                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
-                     </div>
 
-                     <div class="p-t-33">
-                        <div class="flex-w flex-r-m p-b-10">
-                           <div class="size-204 flex-w flex-m respon6-next">
-                              <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">Add to cart</button>
+                        <div class="p-t-30">
+                           <div style="justify-content: center; align-items:center;">
+                              <a href="" class="flex-c-m stext-103 cl2 size-105 bg2 bor2 hov-btn1 p-lr-15 trans-04">Pesan Via Whatsapp <i class="fa fa-whatsapp m-l-5"></i> </a>
                            </div>
                         </div>
                      </div>
                   </div>
-               </div>
             </div>
          </div>
 
          <div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
-            <span class="stext-107 cl6 p-lr-25"> SKU: JAK-01 </span>
+            <span class="stext-107 cl6 p-lr-25"> Kategori: <?= $nama2; ?> </span>
 
-            <span class="stext-107 cl6 p-lr-25"> Categories: Jacket, Men </span>
+            <span class="stext-107 cl6 p-lr-25"> Aksesoris: <?= $nama3; ?> </span>
          </div>
       </section>
 

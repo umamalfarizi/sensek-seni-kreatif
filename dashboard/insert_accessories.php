@@ -40,9 +40,9 @@ if( $sessionStatus == false) {
       <!-- Page Wrapper -->
       <div id="wrapper">
          <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -61,7 +61,7 @@ if( $sessionStatus == false) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item">
@@ -72,7 +72,7 @@ if( $sessionStatus == false) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - produk -->
             <li class="nav-item">
@@ -84,7 +84,7 @@ if( $sessionStatus == false) {
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item active">
@@ -95,11 +95,23 @@ if( $sessionStatus == false) {
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+
+            <!-- Nav Item - Tentang Kami -->
+            <li class="nav-item">
+            <a class="nav-link" href="us.php">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>SEO dan Kontak</span>
+            </a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" />
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
         <!-- End of Sidebar -->
@@ -151,12 +163,12 @@ if( $sessionStatus == false) {
                         <div class="card-body">
                            <div class="p-1">
                               <form action="action_insert_accessories.php" method="post">
-                                 <div class="form-group p-2 mb-3 shadow-sm">
-                                    <label for="nama">Nama</label>
-                                    <input type="text" id="nama" class="form-control" name="nama" placeholder="Nama Aksesoris" required>
+                                 <div class="form-group mb-3">
+                                    <label for="nama">Nama Jenis Aksesoris</label>
+                                    <input type="text" id="nama" class="form-control" name="nama" required autofocus autocomplete="off">
                                  </div>
                                  <div class="">
-                                    <input type="submit"  name="submit" value="Tambah" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary">Tambah</button>
                                     <a href="accessories.php" class="btn border-primary text-primary" style="margin-left: 4px;">Batal</a>
                                  </div>
                               </form>

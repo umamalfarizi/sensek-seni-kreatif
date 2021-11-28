@@ -17,14 +17,14 @@
       <link href="css/sb-admin-2.min.css" rel="stylesheet" />
    </head>
 
-   <body class="bg-gradient-primary">
+   <body class="bg-gradient-primary" style="display: flex; height: 100vh; justify-content: center; align-items:center;">
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-md-6">
                <div class="card o-hidden border-0 shadow-lg my-5">
                   <div class="card-body p-0">
                      <!-- Nested Row within Card Body -->
-                     <div class="row justify-content-center">
+                     <div class="row">
                         <div class="col">
                            <div class="p-5">
                               <div class="text-center">

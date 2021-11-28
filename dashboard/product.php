@@ -44,7 +44,7 @@ $result = mysqli_query($mysqli, $query);
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -63,7 +63,7 @@ $result = mysqli_query($mysqli, $query);
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item">
@@ -74,7 +74,7 @@ $result = mysqli_query($mysqli, $query);
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - produk -->
             <li class="nav-item active">
@@ -86,7 +86,7 @@ $result = mysqli_query($mysqli, $query);
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
@@ -97,11 +97,23 @@ $result = mysqli_query($mysqli, $query);
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+
+            <!-- Nav Item - Tentang Kami -->
+            <li class="nav-item">
+            <a class="nav-link" href="us.php">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>SEO dan Kontak</span>
+            </a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" />
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
         <!-- End of Sidebar -->
@@ -153,7 +165,7 @@ $result = mysqli_query($mysqli, $query);
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>

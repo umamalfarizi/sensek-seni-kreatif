@@ -8,6 +8,8 @@ if( $sessionStatus == false) {
    header("Location: login.php");
 }
 
+// SELECT tb_kategori.nama, tb_kategori.id_kategori, COUNT(tb_produk.nama) AS jumlah FROM tb_produK LEFT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori GROUP BY tb_produk.id_kategori
+
 $query = "SELECT * FROM tb_kategori";
 $result = mysqli_query($mysqli, $query);
 
@@ -44,7 +46,7 @@ $result = mysqli_query($mysqli, $query);
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -63,7 +65,7 @@ $result = mysqli_query($mysqli, $query);
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item active">
@@ -74,7 +76,7 @@ $result = mysqli_query($mysqli, $query);
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - produk -->
             <li class="nav-item">
@@ -86,13 +88,25 @@ $result = mysqli_query($mysqli, $query);
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
             <a class="nav-link" href="accessories.php">
                 <i class="fas fa-fw fa-clipboard-list"></i>
                 <span>Data Jenis Aksesoris</span>
+            </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+
+            <!-- Nav Item - Tentang Kami -->
+            <li class="nav-item">
+            <a class="nav-link" href="us.php">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>SEO dan Kontak</span>
             </a>
             </li>
 
@@ -158,7 +172,6 @@ $result = mysqli_query($mysqli, $query);
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>Jumlah Produk</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -170,9 +183,8 @@ $result = mysqli_query($mysqli, $query);
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $kategori['nama']; ?></td>
-                                            <td>15</td>
                                             <td>
-                                                <a href="update_category.php?id_kategori=<?=$kategori['id_kategori'];?>" class="btn btn-success btn-sm my-2"><i class="fa fa-edit"></i></a>
+                                                <a href="update_category.php?id_kategori=<?=$kategori['id_kategori'];?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                                                 <a href="delete_category.php?id_kategori=<?=$kategori['id_kategori'];?>" onclick=" return confirm_delete()" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

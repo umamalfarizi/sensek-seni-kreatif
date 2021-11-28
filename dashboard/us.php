@@ -6,6 +6,30 @@ if( $sessionStatus == false) {
    header('Location: login.php');
 }
 
+// fetching tabel kontak
+$query = "SELECT * FROM tb_kontak";
+$result = mysqli_query( $mysqli, $query );
+$kontak = mysqli_fetch_assoc($result);
+if( is_null($kontak) ) {
+   $kontak['telepon'] = "";
+   $kontak['email'] = "";
+   $kontak['alamat'] = "";
+}
+
+
+
+$query3 = "SELECT * FROM tb_seo";
+$result3 = mysqli_query( $mysqli, $query3 );
+$seo = mysqli_fetch_assoc($result3);
+
+if( is_null($seo) ) {
+   $seo['author'] = "";
+   $seo['description'] = "";
+   $seo['keywords'] = "";
+   $seo['robot_index'] = 1;
+   $seo['robot_follow'] = 1;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +40,7 @@ if( $sessionStatus == false) {
       <meta name="description" content="" />
       <meta name="author" content="" />
 
-      <title>Admin - Dasbor</title>
+      <title>Admin - SEO Dan Kontak</title>
 
       <!-- Custom fonts for this template-->
       <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -43,7 +67,7 @@ if( $sessionStatus == false) {
             <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
             <a class="nav-link" href="index.php">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dasbor</span>
@@ -89,7 +113,7 @@ if( $sessionStatus == false) {
 
 
             <!-- Nav Item - Tentang Kami -->
-            <li class="nav-item">
+            <li class="nav-item active">
             <a class="nav-link" href="us.php">
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>SEO dan Kontak</span>
@@ -144,87 +168,113 @@ if( $sessionStatus == false) {
 
                <!-- Begin Page Content -->
                <div class="container-fluid">
-                  <!-- Page Heading -->
-                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                     <h1 class="h3 mb-0 text-gray-800">Selamat Datang, <?= $sessionName; ?> !</h1>
-                  </div>
-
-                  <!-- Content Row -->
                   <div class="row">
-
-                     <!-- Earnings (Monthly) Card Example -->
-                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
+                     <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                              <h5 class="m-0 font-weight-bold text-primary">Kontak Kami</h5>
+                           </div>
                            <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                 <div class="col mr-2">
-                                    <div class="font-weight-bold text-warning text-uppercase mb-1">
-                                       Kategori</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                       <?php 
-                                          $query = "SELECT COUNT(id_kategori) FROM tb_kategori";
-                                          $result = mysqli_query($mysqli, $query);
-                                          foreach( $result as $data ) {
-                                             echo $data["COUNT(id_kategori)"];
-                                          }
-                                       ?>
+                              <div class="p-1">
+                                 <form action="action_contact.php" method="post">
+                                    <div class="form-group mb-3">
+                                       <label for="telepon">Nomor Telepon</label>
+                                       <input type="number" id="telepon" class="form-control" name="telepon" value="<?= $kontak['telepon']; ?>" autocomplete="off">
                                     </div>
-                                 </div>
-                                 <div class="col-auto">
-                                    <i class="fas fa-list-alt fa-2x text-gray-300"></i>
-                                 </div>
+                                    <div class="form-group mb-3">
+                                       <label for="email">Email</label>
+                                       <input type="email" id="email" class="form-control" name="email" value="<?= $kontak['email']; ?>" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-4">
+                                       <label for="alamat">Alamat</label>
+                                       <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="3"><?= $kontak['alamat']; ?></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                              <h5 class="m-0 font-weight-bold text-primary">Medsos dan E-Commerce</h5>
+                           </div>
+                           <div class="card-body">
+                              <div class="p-1">
+                                 <form action="action_ecommerce.php" method="post">
+                                 <div class="form-group mb-3">
+                                       <label for="facebook">Tautan Facebook</label>
+                                       <input type="text" id="facebook" class="form-control" name="facebook" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                       <label for="instagram">Tautan Instagram</label>
+                                       <input type="text" id="instagram" class="form-control" name="instagram" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                       <label for="tiktok">Tautan Tiktok</label>
+                                       <input type="text" id="tiktok" class="form-control" name="tiktok" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                       <label for="tokopedia">Tautan Tokopedia</label>
+                                       <input type="text" id="tokopedia" class="form-control" name="tokopedia" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                       <label for="shopee">Tautan Shopee</label>
+                                       <input type="text" id="shopee" class="form-control" name="shopee" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-4">
+                                       <label for="bukalapak">Tautan Bukalapak</label>
+                                       <input type="text" id="bukalapak" class="form-control" name="bukalapak" autocomplete="off">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                 </form>
                               </div>
                            </div>
                         </div>
                      </div>
-
-                     <!-- Earnings (Monthly) Card Example -->
-                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                           <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                 <div class="col mr-2">
-                                    <div class="font-weight-bold text-primary text-uppercase mb-1">
-                                       Jumlah Produk</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                       <?php 
-                                          $query = "SELECT COUNT(id_produk) FROM tb_produk";
-                                          $result = mysqli_query($mysqli, $query);
-                                          foreach( $result as $data ) {
-                                             echo $data["COUNT(id_produk)"];
-                                          }
-                                       ?>
-                                    </div>
-                                 </div>
-                                 <div class="col-auto">
-                                    <i class="fas fa-table fa-2x text-gray-300"></i>
-                                 </div>
-                              </div>
+                     <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                              <h5 class="m-0 font-weight-bold text-primary">SEO (Search Engine Optimization)</h5>
                            </div>
-                        </div>
-                     </div>
-
-                     <!-- Pending Requests Card Example -->
-                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
                            <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                 <div class="col mr-2">
-                                    <div class="font-weight-bold text-success text-uppercase mb-1">
-                                       Jenis Aksesoris</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                       <?php 
-                                          $query = "SELECT COUNT(id_jenis_aksesoris) FROM tb_jenis_aksesoris";
-                                          $result = mysqli_query($mysqli, $query);
-                                          foreach( $result as $data ) {
-                                             echo $data["COUNT(id_jenis_aksesoris)"];
-                                          }
-                                       ?>
+                              <div class="p-1">
+                                 <form action="action_seo.php" method="post">
+                                    <div class="form-group mb-3">
+                                       <label for="author">Author</label>
+                                       <input type="text" id="author" class="form-control" name="author" value="<?= $seo['author']; ?>" autocomplete="off">
                                     </div>
-                                 </div>
-                                 <div class="col-auto">
-                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                 </div>
+                                    <div class="form-group mb-3">
+                                       <label for="description">Description</label>
+                                       <textarea name="description" id="description" class="form-control" cols="30" rows="3"><?= $seo['description']; ?></textarea>
+                                    </div>
+                                    <div class="form-group mb-3 ">
+                                       <label for="keywords">Keywords</label>
+                                       <textarea name="keywords" id="keywords" class="form-control" cols="30" rows="3"><?= $seo['keywords']; ?></textarea>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                       <label>Robot Index</label>
+                                       <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="robot_index"  id="index" value="1" <?= ($seo['robot_index']==1) ? "checked" : ""; ?> />
+                                          <label class="form-check-label" for="index" >Index</label>
+                                       </div>
+                                       <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="robot_index"  id="no_index" value="0" <?= ($seo['robot_index']==0) ? "checked" : ""; ?> />
+                                          <label class="form-check-label" for="no_index" >No-Index</label>
+                                       </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                       <label>Robot Follow</label>
+                                       <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="robot_follow"  id="follow" value="1" <?= ($seo['robot_follow']==1) ? "checked" : "" ; ?> />
+                                          <label class="form-check-label" for="follow" >Follow</label>
+                                       </div>
+                                       <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="robot_follow"  id="no_follow" value="0" <?= ($seo['robot_follow']==0) ? "checked" : "" ; ?> />
+                                          <label class="form-check-label" for="no_follow" >No-Follow</label>
+                                       </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                 </form>
                               </div>
                            </div>
                         </div>

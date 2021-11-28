@@ -44,7 +44,7 @@ $result = mysqli_query($mysqli, $query);
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -63,7 +63,7 @@ $result = mysqli_query($mysqli, $query);
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item">
@@ -74,7 +74,7 @@ $result = mysqli_query($mysqli, $query);
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - produk -->
             <li class="nav-item">
@@ -86,13 +86,25 @@ $result = mysqli_query($mysqli, $query);
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item active">
             <a class="nav-link" href="accessories.php">
                 <i class="fas fa-fw fa-clipboard-list"></i>
                 <span>Data Jenis Aksesoris</span>
+            </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+
+            <!-- Nav Item - Tentang Kami -->
+            <li class="nav-item">
+            <a class="nav-link" href="us.php">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>SEO dan Kontak</span>
             </a>
             </li>
 
@@ -148,7 +160,7 @@ $result = mysqli_query($mysqli, $query);
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Data JeniS Aksesoris
+                            <h5 class="m-0 font-weight-bold text-primary">Data Jenis Aksesoris
                             <a href="insert_accessories.php" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i> Tambah Data</a>
                         </div>
                         <div class="card-body">
@@ -158,7 +170,6 @@ $result = mysqli_query($mysqli, $query);
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>Jumlah Produk</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -170,9 +181,8 @@ $result = mysqli_query($mysqli, $query);
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $aksesoris['nama']; ?></td>
-                                            <td>15</td>
                                             <td>
-                                                <a href="update_accessories.php?id_jenis_aksesoris=<?=$aksesoris['id_jenis_aksesoris'];?>" class="btn btn-success btn-sm my-2"><i class="fa fa-edit"></i></a>
+                                                <a href="update_accessories.php?id_jenis_aksesoris=<?=$aksesoris['id_jenis_aksesoris'];?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                                                 <a href="delete_accessories.php?id_jenis_aksesoris=<?=$aksesoris['id_jenis_aksesoris'];?>" onclick=" return confirm_delete()" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

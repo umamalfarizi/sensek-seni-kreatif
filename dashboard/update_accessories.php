@@ -57,7 +57,7 @@ foreach( $result as $jenis_aksesoris ) {
          <!-- Sidebar -->
          <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -76,7 +76,7 @@ foreach( $result as $jenis_aksesoris ) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item">
@@ -87,7 +87,7 @@ foreach( $result as $jenis_aksesoris ) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - produk -->
             <li class="nav-item">
@@ -99,7 +99,7 @@ foreach( $result as $jenis_aksesoris ) {
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item active">
@@ -110,11 +110,23 @@ foreach( $result as $jenis_aksesoris ) {
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+
+            <!-- Nav Item - Tentang Kami -->
+            <li class="nav-item">
+            <a class="nav-link" href="us.php">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>SEO dan Kontak</span>
+            </a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" />
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
          <!-- End of Sidebar -->
@@ -169,12 +181,12 @@ foreach( $result as $jenis_aksesoris ) {
 
                                  <input type="hidden" name="id_jenis_aksesoris" value="<?=$id?>">
 
-                                 <div class="form-group p-2 mb-3 shadow-sm">
-                                    <label for="nama" >Nama</label>
-                                    <input type="text" id="nama" class="form-control" value="<?=$nama;?>" name="nama" required>
+                                 <div class="form-group mb-3">
+                                    <label for="nama" >Nama Jenis Aksesoris</label>
+                                    <input type="text" id="nama" class="form-control" value="<?=$nama;?>" name="nama" required autocomplete="off">
                                  </div>
                                  <div class="">
-                                    <input type="submit"  name="submit" value="Simpan" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                     <a href="accessories.php" class="btn border-primary text-primary" style="margin-left: 4px;">Batal</a>
                                  </div>
                               </form>

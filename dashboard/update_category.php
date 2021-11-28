@@ -57,7 +57,7 @@ foreach( $result as $kategori ) {
          <!-- Sidebar -->
          <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -76,7 +76,7 @@ foreach( $result as $kategori ) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item active">
@@ -87,7 +87,7 @@ foreach( $result as $kategori ) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - produk -->
             <li class="nav-item">
@@ -99,7 +99,7 @@ foreach( $result as $kategori ) {
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
@@ -110,13 +110,25 @@ foreach( $result as $kategori ) {
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+
+            <!-- Nav Item - Tentang Kami -->
+            <li class="nav-item">
+            <a class="nav-link" href="us.php">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>SEO dan Kontak</span>
+            </a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" />
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-        </ul>
+         </ul>
          <!-- End of Sidebar -->
 
          <!-- Content Wrapper -->
@@ -169,12 +181,12 @@ foreach( $result as $kategori ) {
 
                                  <input type="hidden" name="id_kategori" value="<?=$id?>">
 
-                                 <div class="form-group p-2 mb-3 shadow-sm">
-                                    <label for="nama" >Nama</label>
-                                    <input type="text" id="nama" class="form-control" value="<?=$nama;?>" name="nama" required>
+                                 <div class="form-group mb-3">
+                                    <label for="nama" >Nama Kategori</label>
+                                    <input type="text" id="nama" class="form-control" value="<?=$nama;?>" name="nama" required autocomplete="off">
                                  </div>
-                                 <div class="">
-                                    <input type="submit"  name="submit" value="Simpan" class="btn btn-primary">
+                                 <div>
+                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                     <a href="category.php" class="btn border-primary text-primary" style="margin-left: 4px;">Batal</a>
                                  </div>
                               </form>

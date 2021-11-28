@@ -88,7 +88,7 @@ foreach ( $result3 as $jenis) {
          <!-- Sidebar -->
          <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -107,7 +107,7 @@ foreach ( $result3 as $jenis) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - Kategori -->
             <li class="nav-item">
@@ -118,7 +118,7 @@ foreach ( $result3 as $jenis) {
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - produk -->
             <li class="nav-item active">
@@ -130,7 +130,7 @@ foreach ( $result3 as $jenis) {
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider" />
+            <hr class="sidebar-divider my-0" />
 
             <!-- Nav Item - jenis aksesoris -->
             <li class="nav-item">
@@ -141,11 +141,23 @@ foreach ( $result3 as $jenis) {
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+
+            <!-- Nav Item - Tentang Kami -->
+            <li class="nav-item">
+            <a class="nav-link" href="us.php">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>SEO dan Kontak</span>
+            </a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" />
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
          </ul>
          <!-- End of Sidebar -->
@@ -200,8 +212,8 @@ foreach ( $result3 as $jenis) {
 
                                  <input type="hidden" name="id_produk" value="<?=$id_produk?>">
 
-                                 <div class="form-group p-2 mb-3 shadow-sm">
-                                    <label for="foto">Foto</label>
+                                 <div class="form-group mb-3">
+                                    <label for="foto">Foto Produk</label>
                                     <?php if( !is_null($foto) && !empty($foto) ) : ?>
                                     <div class="mb-2">
                                        <img src="<?=$foto;?>" style="height: 100px;" alt="" class="preview">
@@ -210,18 +222,18 @@ foreach ( $result3 as $jenis) {
                                     <?php endif; ?>
                                     <input type="file" id="foto" class="form-control" name="foto">
                                  </div>
-                                 <div class="form-group p-2 mb-3 shadow-sm">
-                                    <label for="nama" >Nama</label>
-                                    <input type="text" id="nama" class="form-control" value="<?=$nama;?>" name="nama" required>
+                                 <div class="form-group mb-3">
+                                    <label for="nama" >Nama Produk</label>
+                                    <input type="text" id="nama" class="form-control" value="<?=$nama;?>" name="nama" required autocomplete="off">
                                  </div>
                                  <div class="row">
                                     <div class="col-md 6">
-                                       <div class="form-group p-2 mb-3 shadow-sm">
+                                       <div class="form-group mb-3">
                                           <?php 
                                              $query = "SELECT * FROM tb_kategori";
                                              $kate = mysqli_query($mysqli, $query);
                                           ?>
-                                          <label for="kategori">Kategori</label>
+                                          <label for="kategori">Kategori Produk</label>
                                           <select class="form-control" aria-label="Default select example" name="kategori" id="kategori" required>
                                                 <option>- Pilih kategori -</option>
                                                 <?php foreach( $kate as $kategori) : ?>
@@ -231,12 +243,12 @@ foreach ( $result3 as $jenis) {
                                        </div>
                                     </div>
                                     <div class="col-md 6">
-                                       <div class="form-group p-2 mb-3 shadow-sm">
+                                       <div class="form-group mb-3">
                                           <?php 
                                              $query = "SELECT * FROM tb_jenis_aksesoris";
                                              $jenis = mysqli_query($mysqli, $query);
                                           ?>
-                                          <label for="jenis_aksesoris">Jenis Aksesoris</label>
+                                          <label for="jenis_aksesoris">Jenis Aksesoris Produk</label>
                                           <select class="form-control" aria-label="Default select example" name="jenis_aksesoris" id="jenis_aksesoris" required>
                                                 <option>- Pilih Jenis -</option>
                                                 <?php foreach( $jenis as $jenis_aksesoris) : ?>
@@ -248,24 +260,24 @@ foreach ( $result3 as $jenis) {
                                  </div>
                                  <div class="row">
                                     <div class="col-md-6">
-                                       <div class="form-group p-2 mb-3 shadow-sm">
-                                          <label for="harga">Harga (Rp)</label>
+                                       <div class="form-group mb-3">
+                                          <label for="harga">Harga Produk (Rp)</label>
                                           <input name="harga" type="number" id="harga" value="<?=$harga;?>" class="form-control" required>
                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                       <div class="form-group p-2 mb-3 shadow-sm">
-                                          <label for="stok">Stok</label>
+                                       <div class="form-group mb-3">
+                                          <label for="stok">Stok Produk</label>
                                           <input name="stok" type="number" id="stok" value="<?=$stok;?>" class="form-control" required>
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="form-group p-2 mb-4 shadow-sm">
-                                    <label for="deskripsi">Deskripsi</label>
+                                 <div class="form-group mb-4">
+                                    <label for="deskripsi">Deskripsi Produk</label>
                                     <textarea name="deskripsi" id="deskripsi"  class="form-control" cols="30" rows="3"><?=$deskripsi;?></textarea>
                                  </div>
-                                 <div class="text-end">
-                                    <input type="submit"  name="submit" value="Simpan" class="btn btn-primary">
+                                 <div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                     <a href="product.php" class="btn border-primary text-primary" style="margin-left: 4px;">Batal</a>
                                  </div>
                               </form>
