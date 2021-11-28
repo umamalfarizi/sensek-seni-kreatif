@@ -8,9 +8,8 @@ if( $sessionStatus == false) {
    header("Location: login.php");
 }
 
-// SELECT tb_kategori.nama, tb_kategori.id_kategori, COUNT(tb_produk.nama) AS jumlah FROM tb_produK LEFT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori GROUP BY tb_produk.id_kategori
 
-$query = "SELECT * FROM tb_kategori";
+$query = "SELECT tb_kategori.nama, tb_kategori.id_kategori, COUNT(tb_produk.nama) AS jumlah FROM tb_produK RIGHT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori GROUP BY tb_produk.id_kategori ORDER BY id_kategori ASC";
 $result = mysqli_query($mysqli, $query);
 
 ?>
@@ -172,6 +171,7 @@ $result = mysqli_query($mysqli, $query);
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
+                                            <th>Jumlah Produk</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -183,6 +183,7 @@ $result = mysqli_query($mysqli, $query);
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $kategori['nama']; ?></td>
+                                            <td><?= $kategori['jumlah']; ?></td>
                                             <td>
                                                 <a href="update_category.php?id_kategori=<?=$kategori['id_kategori'];?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                                                 <a href="delete_category.php?id_kategori=<?=$kategori['id_kategori'];?>" onclick=" return confirm_delete()" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
