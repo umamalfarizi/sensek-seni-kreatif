@@ -600,9 +600,7 @@ if( is_null($seo) ) {
                <div class="col-md-6  p-b-20">
                   <div class="p-r-50 p-t-5 p-lr-0-lg">
 
-                     <?php $nama = '<span id="nama"></span>'; ?>
-
-                     <h4 class="mtext-105 cl2 js-name-detail p-b-14"><?= $nama; ?></h4>
+                     <h4 class="mtext-105 cl2 js-name-detail p-b-14" id="nama"></h4>
 
                      <span class="mtext-106 cl2" id="harga"></span>
 
