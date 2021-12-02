@@ -205,7 +205,7 @@ if( $sessionStatus == false) {
                                  </div>
                                  <div class="form-group mb-3">
                                     <label for="foto">Foto Produk</label>
-                                    <input type="file" id="foto" class="form-control" name="foto">
+                                    <input type="file" id="foto" class="form-control" name="foto" required>
                                  </div>
                                  <div class="row">
                                     <div class="col-md-6">

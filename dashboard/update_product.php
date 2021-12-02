@@ -217,7 +217,6 @@ foreach ( $result3 as $jenis) {
                                     <?php if( !is_null($foto) && !empty($foto) ) : ?>
                                     <div class="mb-2">
                                        <img src="<?=$foto;?>" style="height: 100px;" alt="" class="preview">
-                                       <a href="delete_photo.php?id_produk=<?=$id_produk?>" class="btn btn-danger btn-sm align-bottom ml-2"><i class="fa fa-trash"></i> Hapus Foto</a>
                                     </div>
                                     <?php endif; ?>
                                     <input type="file" id="foto" class="form-control" name="foto">

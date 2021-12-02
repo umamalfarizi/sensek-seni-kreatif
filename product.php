@@ -2,6 +2,32 @@
 
 require_once("dashboard/connection.php");
 
+// fetching tabel kontak
+$query = "SELECT * FROM tb_kontak";
+$result = mysqli_query( $mysqli, $query );
+$kontak = mysqli_fetch_assoc($result);
+if( is_null($kontak) ) {
+   $kontak['telepon'] = "";
+   $kontak['email'] = "";
+   $kontak['alamat'] = "";
+   $kontak['link_gmaps'] = "";
+}
+
+
+
+$query3 = "SELECT * FROM tb_seo";
+$result3 = mysqli_query( $mysqli, $query3 );
+$seo = mysqli_fetch_assoc($result3);
+
+if( is_null($seo) ) {
+   $seo['author'] = "";
+   $seo['description'] = "";
+   $seo['keywords'] = "";
+   $seo['robot_index'] = 1;
+   $seo['robot_follow'] = 1;
+}
+
+
 ?>
 
 
@@ -10,9 +36,16 @@ require_once("dashboard/connection.php");
 <head>
    <title>Produk</title>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="<?= $seo['description']; ?>">
+   <meta name="keywords" content="<?= $seo['keywords']; ?>">
+   <meta name="author" content="<?= $seo['author']; ?>">
+   <meta name="robots" content="<?= ($seo['robot_index']==1) ? "index" : "noindex"; ?>, <?= ($seo['robot_follow']==1) ? "follow" : "nofollow" ; ?>">
+
+
 <!--===============================================================================================-->	
-   <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+   <link rel="icon" type="image/png" href="images/icons/ikon.png"/>
 <!--===============================================================================================-->
    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -41,61 +74,67 @@ require_once("dashboard/connection.php");
    <link rel="stylesheet" type="text/css" href="css/util.css">
    <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<!-- Bootstrap icon -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+
+
 </head>
 <body class="animsition">
-   
    <!-- Header -->
    <header class="header-v4">
       <!-- Header desktop -->
       <div class="container-menu-desktop">
+         <!-- Topbar -->
+         <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+               <div class="left-top-bar">
+                  Selamat datang di toko kami dan selamat berbelanja!
+               </div>
+            </div>
+         </div>
          <div class="wrap-menu-desktop how-shadow1">
             <nav class="limiter-menu-desktop container">
-               
-               <!-- Logo desktop -->		
-               <a href="index.php" class="logo">
-                  <img src="images/icons/logo-01.png" alt="IMG-LOGO">
-               </a>
+               <!-- Logo desktop -->
+               <div class="logo-mobile">
+                  <a href="index.php"><img src="images/icons/20211201_131422.png" alt="IMG-LOGO" /></a>
+               </div>
 
                <!-- Menu desktop -->
                <div class="menu-desktop">
                   <ul class="main-menu">
                      <li>
-                        <a href="index.php">Home</a>
+                        <a href="index.php">Beranda</a>
                      </li>
 
                      <li class="active-menu">
-                        <a href="product.php">Shop</a>
+                        <a href="product.php">Produk</a>
                      </li>
 
                      <li>
-                        <a href="about.php">About Us</a>
+                        <a href="about.php">Tentang Kami</a>
                      </li>
 
                      <li>
-                        <a href="contact.php">Contact Us</a>
+                        <a href="contact.php">Kontak Kami</a>
                      </li>
                   </ul>
-               </div>	
+               </div>
 
                <!-- Icon header -->
                <div class="wrap-icon-header flex-w flex-r-m">
                   <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                      <i class="zmdi zmdi-search"></i>
                   </div>
-
-                  <a href="dashboard/" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-                     <i class="fa fa-user-circle"></i>
-                  </a>
                </div>
             </nav>
-         </div>	
+         </div>
       </div>
 
       <!-- Header Mobile -->
       <div class="wrap-header-mobile">
-         <!-- Logo moblie -->		
+         <!-- Logo moblie -->
          <div class="logo-mobile">
-            <a href="index.php"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+            <a href="index.php"><img src="images/icons/20211201_131422.png" alt="IMG-LOGO" /></a>
          </div>
 
          <!-- Icon header -->
@@ -103,10 +142,6 @@ require_once("dashboard/connection.php");
             <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
                <i class="zmdi zmdi-search"></i>
             </div>
-
-            <a href="dashboard/" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 ">
-               <i class="fa fa-user-circle"></i>
-            </a>
          </div>
 
          <!-- Button show menu -->
@@ -117,25 +152,23 @@ require_once("dashboard/connection.php");
          </div>
       </div>
 
-
       <!-- Menu Mobile -->
       <div class="menu-mobile">
-
          <ul class="main-menu-m">
             <li>
-               <a href="index.php">Home</a>
+               <a href="index.php">Beranda</a>
             </li>
 
             <li>
-               <a href="product.php">Shop</a>
+               <a href="product.php">Produk</a>
             </li>
 
             <li>
-               <a href="about.php">About Us</a>
+               <a href="about.php">Tentang Kami</a>
             </li>
 
             <li>
-               <a href="contact.php">Contact Us</a>
+               <a href="contact.php">Kontak Kami</a>
             </li>
          </ul>
       </div>
@@ -179,11 +212,11 @@ require_once("dashboard/connection.php");
             </div>
 
             <div class="flex-w flex-c-m m-tb-10">
-               <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
+               <!-- <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
                   <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
                   <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
                   Filter
-               </div>
+               </div> -->
 
                <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
                   <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
@@ -205,7 +238,7 @@ require_once("dashboard/connection.php");
             </div>
 
             <!-- Filter -->
-            <div class="dis-none panel-filter w-full p-t-10">
+            <!-- <div class="dis-none panel-filter w-full p-t-10">
                <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
                   <div class="filter-col1 p-r-15 p-b-27">
                      <div class="mtext-102 cl2 p-b-15">
@@ -391,7 +424,7 @@ require_once("dashboard/connection.php");
                      </div>
                   </div>
                </div>
-            </div>
+            </div> -->
          </div>
 
          <div class="row isotope-grid">
@@ -406,7 +439,7 @@ require_once("dashboard/connection.php");
                $query = "SELECT * FROM tb_produk";
                $result = mysqli_query( $mysqli, $query );
             }
-            
+
             foreach( $result as $produk ) :
                $idProduk = $produk['id_produk'];
                $nama = $produk['nama'];
@@ -417,6 +450,7 @@ require_once("dashboard/connection.php");
                $stok = $produk['stok'];
                $deskripsi = $produk['deskripsi'];
                
+
             ?>
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?= $idKategori; ?>">
                <!-- Block2 -->
@@ -452,158 +486,87 @@ require_once("dashboard/connection.php");
 
          </div>
          
-         <?php if( !isset($_GET['search']) ) : ?>
          <!-- Load more -->
-         <div class="flex-c-m flex-w w-full p-t-45">
+         <!-- <div class="flex-c-m flex-w w-full p-t-45">
             <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-               Load More
+               Muat Lebih Banyak
             </a>
-         </div>
-         <?php endif; ?>
+         </div> -->
       </div>
    </div>
       
 
    <!-- Footer -->
    <footer class="bg3 p-t-75 p-b-32">
-      <div class="container">
+   <div class="container">
          <div class="row">
-            <div class="col-sm-6 col-lg-3 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">
-                  Categories
-               </h4>
+            <div class="col-sm-6 col-lg-4 p-b-50">
+               <h4 class="stext-301 cl0 p-b-30">Siapa Kami?</h4>
+
+               <p class="stext-107 cl7 size-201">Kami memproduksi kain tenun tradisional beserta produk turunannya dan memproduksi pakaian adat sasak komplit</p>
+
+            </div>
+
+            <div class="col-sm-6 col-lg-4 p-b-50">
+               <h4 class="stext-301 cl0 p-b-30">Hubungi Kami</h4>
 
                <ul>
+                  
                   <li class="p-b-10">
-                     <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                        Women
-                     </a>
+                     <span class="stext-107 cl7 size-201">
+                        <i class="bi bi-telephone m-r-2"> <?= $kontak['telepon']; ?></i>
+                     </span>
+                  </li>
+                  
+                  <li class="p-b-10">
+                     <span class="stext-107 cl7 size-201">
+                        <i class="bi bi-envelope m-r-2"></i> <?= $kontak['email']; ?>
+                     </span>
                   </li>
 
                   <li class="p-b-10">
-                     <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                        Men
-                     </a>
-                  </li>
-
-                  <li class="p-b-10">
-                     <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                        Shoes
-                     </a>
-                  </li>
-
-                  <li class="p-b-10">
-                     <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                        Watches
-                     </a>
+                     <span class="stext-107 cl7 size-201">
+                        <i class="bi bi-geo-alt m-r-2"></i> <?= $kontak['alamat']; ?>
+                     </span>
                   </li>
                </ul>
             </div>
 
+            <div class="col-lg-1">
+
+            </div>
+
             <div class="col-sm-6 col-lg-3 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">
-                  Help
-               </h4>
+               <h4 class="stext-301 cl0 p-b-30">Ikuti Kami</h4>
 
                <ul>
                   <li class="p-b-10">
-                     <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                        Track Order
-                     </a>
+                     <a href="https://www.facebook.com/profile.php?id=100075187163923" target="_blank" class="stext-107 cl7 hov-cl1 trans-04"> <i class="bi bi-facebook"></i> Sasak Sensek </a>
                   </li>
 
                   <li class="p-b-10">
-                     <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                        Returns 
-                     </a>
+                     <a href="https://www.instagram.com/sasksensek/" target="_blank" class="stext-107 cl7 hov-cl1 trans-04"> <i class="bi bi-instagram"></i> @sasaksensek </a>
                   </li>
 
                   <li class="p-b-10">
-                     <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                        Shipping
-                     </a>
-                  </li>
-
-                  <li class="p-b-10">
-                     <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                        FAQs
-                     </a>
+                     <a href="https://vt.tiktok.com/ZSeDRUN1x/" target="_blank" class="stext-107 cl7 hov-cl1 trans-04"> <i class="bi bi-tiktok"></i> @sasaksensek </a>
                   </li>
                </ul>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">
-                  GET IN TOUCH
-               </h4>
-
-               <p class="stext-107 cl7 size-201">
-                  Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
-               </p>
-
-               <div class="p-t-27">
-                  <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                     <i class="fa fa-facebook"></i>
-                  </a>
-
-                  <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                     <i class="fa fa-instagram"></i>
-                  </a>
-
-                  <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                     <i class="fa fa-pinterest-p"></i>
-                  </a>
-               </div>
-            </div>
-
-            <div class="col-sm-6 col-lg-3 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">
-                  Newsletter
-               </h4>
-
-               <form>
-                  <div class="wrap-input1 w-full p-b-4">
-                     <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
-                     <div class="focus-input1 trans-04"></div>
-                  </div>
-
-                  <div class="p-t-18">
-                     <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                        Subscribe
-                     </button>
-                  </div>
-               </form>
-            </div>
          </div>
 
          <div class="p-t-40">
-            <div class="flex-c-m flex-w p-b-18">
-               <a href="#" class="m-all-1">
-                  <img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-               </a>
-
-               <a href="#" class="m-all-1">
-                  <img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-               </a>
-
-               <a href="#" class="m-all-1">
-                  <img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-               </a>
-
-               <a href="#" class="m-all-1">
-                  <img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-               </a>
-
-               <a href="#" class="m-all-1">
-                  <img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-               </a>
-            </div>
 
             <p class="stext-107 cl6 txt-center">
                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
+               Copyright &copy;
+               <script>
+                  document.write(new Date().getFullYear());
+               </script>
+               All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by
+               <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
          </div>
       </div>
@@ -661,7 +624,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                            <div class="tab-content p-t-25">
                               <!-- - -->
                               <div class="tab-pane fade show active" id="description" role="tabpanel">
-                                 <div class="how-pos2 p-lr-15-md">
+                                 <div class="how-pos2 p-lr-8-md">
                                     <p class="stext-102 cl6" id="deskripsi">
                                     </p>
                                  </div>
@@ -670,8 +633,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                               <!-- - -->
                               <div class="tab-pane fade" id="information" role="tabpanel">
                                  <div class="row">
-                                    <div class="col-sm-10 m-lr-auto">
-                                       <ul class="p-lr-25 p-lr-15-sm">
+                                    <div class="col-sm-11 m-lr-auto">
+                                       <ul class="p-lr-12 p-lr-15-sm">
                                           <li class="flex-w flex-t p-b-7">
                                              <span class="stext-102 cl3 size-205"> Jenis Kain </span>
                                           
@@ -698,9 +661,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                      </div>
 
                      <div class="p-t-30">
-                        <div style="justify-content: center; align-items:center;">
-                           <a href="" class="flex-c-m stext-103 cl2 size-105 bg2 bor2 hov-btn1 p-lr-15 trans-04">Pesan Via Whatsapp <i class="fa fa-whatsapp m-l-5"></i> </a>
-                        </div>
+                        <a id="pesan" class="flex-c-m stext-103 cl2 size-105 bg2 bor4 hov-btn1 p-lr-15 trans-04" href="" target="_blank">
+                           <i class="fa fa-whatsapp m-r-5"></i> Pesan Sekarang
+                        </a>
                      </div>
                   </div>
                </div>
@@ -826,6 +789,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             $('#stok').text(stok);
             $('#foto').attr('src', 'dashboard/'+foto);
             $('#deskripsi').text(deskripsi);
+            $('#pesan').attr('href', 'https://api.whatsapp.com/send?phone=6287857097230&text=Hai%20kak,%0D%0Asaya%20tertarik%20dengan%20' + nama + '%20yang%20harganya%20Rp%20' + harga);
          })
       })
    </script>

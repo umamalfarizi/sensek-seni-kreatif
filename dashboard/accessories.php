@@ -7,8 +7,8 @@ require_once ("session_check.php");
 if( $sessionStatus == false) {
 header("Location: login.php");
 }
-
-$query = "SELECT tb_jenis_aksesoris.nama, tb_jenis_aksesoris.id_jenis_aksesoris, COUNT(tb_produk.nama) AS jumlah FROM tb_produK RIGHT JOIN tb_jenis_aksesoris ON tb_produk.id_jenis_aksesoris = tb_jenis_aksesoris.id_jenis_aksesoris GROUP BY tb_produk.id_jenis_aksesoris ORDER BY id_jenis_aksesoris ASC";
+// SELECT tb_jenis_aksesoris.nama, tb_jenis_aksesoris.id_jenis_aksesoris, COUNT(tb_produk.nama) AS jumlah FROM tb_produK RIGHT JOIN tb_jenis_aksesoris ON tb_produk.id_jenis_aksesoris = tb_jenis_aksesoris.id_jenis_aksesoris GROUP BY tb_produk.id_jenis_aksesoris ORDER BY id_jenis_aksesoris ASC
+$query = "SELECT * FROM tb_jenis_aksesoris";
 $result = mysqli_query($mysqli, $query);
 
 ?>
@@ -170,7 +170,6 @@ $result = mysqli_query($mysqli, $query);
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>Jumlah Produk</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -182,7 +181,6 @@ $result = mysqli_query($mysqli, $query);
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $aksesoris['nama']; ?></td>
-                                            <td><?= $aksesoris['jumlah']; ?></td>
                                             <td>
                                                 <a href="update_accessories.php?id_jenis_aksesoris=<?=$aksesoris['id_jenis_aksesoris'];?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                                                 <a href="delete_accessories.php?id_jenis_aksesoris=<?=$aksesoris['id_jenis_aksesoris'];?>" onclick=" return confirm_delete()" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>

@@ -20,6 +20,9 @@ else $error = 1;
 if ( isset($_POST['alamat']) ) $alamat = $_POST['alamat'];
 else $error = 1;
 
+if ( isset($_POST['link_gmaps']) ) $link_gmaps = $_POST['link_gmaps'];
+else $error = 1;
+
 // Mengatasi jika terjadi error pada input
 if ( $error == 1 )  {
    echo "Terjadi kesalahan pada proses input data";
@@ -27,11 +30,11 @@ if ( $error == 1 )  {
 }
 
 if( !is_null($data)) {
-   $query = "UPDATE tb_kontak SET telepon = '{$telepon}', email = '{$email}', alamat = '{$alamat}'";
+   $query = "UPDATE tb_kontak SET telepon = '{$telepon}', email = '{$email}', alamat = '{$alamat}', link_gmaps = '{$link_gmaps}'";
    $kontak = mysqli_query($mysqli, $query);
 }
 else {
-   $query = "INSERT INTO tb_kontak VALUES ('{$telepon}', '{$email}', '{$alamat}')";
+   $query = "INSERT INTO tb_kontak VALUES ('{$telepon}', '{$email}', '{$alamat}', '{$link_gmaps}')";
    $kontak = mysqli_query($mysqli, $query);
 }
 

@@ -95,10 +95,10 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ RS PLUGIN ]*/
+ [ RS PLUGIN ]*/
 
 /*------------------------------------------------------------------
-[ Bootstrap ]*/
+ [ Bootstrap ]*/
 .container {
    max-width: 1380px;
 }
@@ -110,13 +110,13 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ Slick2 ]*/
+ [ Slick2 ]*/
 .slick-slide {
    outline: none !important;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ LOADDING ]*/
+ [ LOADDING ]*/
 .animsition-loading-1 {
    position: absolute;
    top: 50%;
@@ -154,7 +154,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ BUTTON BACK TO TOP ]*/
+ [ BUTTON BACK TO TOP ]*/
 .btn-back-to-top {
    display: none;
    position: fixed;
@@ -193,10 +193,10 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Header ]*/
+ [ Header ]*/
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-[ Header Desktop ]*/
+ [ Header Desktop ]*/
 
 .container-menu-desktop {
    height: auto;
@@ -217,7 +217,14 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .header-v4 .container-menu-desktop {
-   height: 85px;
+   height: 124px;
+}
+
+/*==================================================================
+ [ Top bar ]*/
+.top-bar {
+   height: 40px;
+   background-color: #222;
 }
 
 /*---------------------------------------------*/
@@ -255,7 +262,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*==================================================================
-[ Menu ]*/
+ [ Menu ]*/
 
 .wrap-menu-desktop {
    position: fixed;
@@ -300,7 +307,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ Logo ]*/
+ [ Logo ]*/
 .logo {
    display: -webkit-box;
    display: -webkit-flex;
@@ -318,7 +325,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ Menu ]*/
+ [ Menu ]*/
 
 .menu-desktop {
    display: -webkit-box;
@@ -458,7 +465,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ Icon header ]*/
+ [ Icon header ]*/
 
 .wrap-icon-header {
    flex-grow: 1;
@@ -496,7 +503,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ Modal search ]*/
+ [ Modal search ]*/
 .modal-search-header {
    position: fixed;
    z-index: 2000;
@@ -591,7 +598,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*==================================================================
-[ Fixed menu desktop ]*/
+ [ Fixed menu desktop ]*/
 
 .fix-menu-desktop .wrap-menu-desktop {
    height: 70px;
@@ -613,7 +620,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .header-v4 .fix-menu-desktop.container-menu-desktop {
-   height: 70px;
+   height: 110px;
 }
 
 /*---------------------------------------------*/
@@ -622,7 +629,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-[ Header Mobile ]*/
+ [ Header Mobile ]*/
 .wrap-header-mobile {
    display: -webkit-box;
    display: -webkit-flex;
@@ -643,7 +650,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ Logo mobile ]*/
+ [ Logo mobile ]*/
 .logo-mobile {
    display: block;
    position: relative;
@@ -665,7 +672,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ btn show menu ]*/
+ [ btn show menu ]*/
 .hamburger {
    display: -webkit-box;
    display: -webkit-flex;
@@ -700,7 +707,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*==================================================================
-[ Menu mobile ]*/
+ [ Menu mobile ]*/
 .menu-mobile {
    width: 100%;
    background-color: white;
@@ -787,7 +794,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Sidebar ]*/
+ [ Sidebar ]*/
 .wrap-sidebar {
    position: fixed;
    z-index: 1100;
@@ -882,7 +889,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Header cart ]*/
+ [ Header cart ]*/
 .wrap-header-cart {
    position: fixed;
    z-index: 1100;
@@ -1037,7 +1044,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Restyle Select2 ]*/
+ [ Restyle Select2 ]*/
 
 .rs1-select2 .select2-container {
    display: block;
@@ -1061,7 +1068,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ in select ]*/
+ [ in select ]*/
 .rs1-select2 .select2-container .select2-selection--single .select2-selection__rendered {
    font-family: Poppins-Regular;
    font-size: 13px;
@@ -1102,7 +1109,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ Dropdown option ]*/
+ [ Dropdown option ]*/
 .rs1-select2 .select2-container--open .select2-dropdown {
    z-index: 1251;
    width: 100%;
@@ -1159,7 +1166,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*------------------------------------------------------------------
-[ rs2 ]*/
+ [ rs2 ]*/
 .rs2-select2 .select2-container .select2-selection--single {
    height: 40px;
 }
@@ -1179,7 +1186,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Slick1 ]*/
+ [ Slick1 ]*/
 .wrap-slick1 {
    position: relative;
 }
@@ -1347,7 +1354,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Slick2 ]*/
+ [ Slick2 ]*/
 
 .wrap-slick2 {
    position: relative;
@@ -1397,7 +1404,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Slick3 ]*/
+ [ Slick3 ]*/
 .wrap-slick3 {
    position: relative;
 }
@@ -1409,10 +1416,6 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
    width: 83.333333%;
    right: 0;
    top: calc(50% - 20px);
-}
-
-.tes {
-   justify-content: center;
 }
 
 .arrow-slick3 {
@@ -1485,7 +1488,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ RS Magnific-Popup ]*/
+ [ RS Magnific-Popup ]*/
 .mfp-bg {
    z-index: 10000;
    background-color: #000;
@@ -1573,7 +1576,7 @@ button.mfp-close {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Tab01 ]*/
+ [ Tab01 ]*/
 .tab01 .nav-tabs {
    display: -webkit-box;
    display: -webkit-flex;
@@ -1618,7 +1621,7 @@ button.mfp-close {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ RS sweet alert ]*/
+ [ RS sweet alert ]*/
 .swal-overlay {
    overflow-y: auto;
 }
@@ -1671,7 +1674,7 @@ button.mfp-close {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Filter ]*/
+ [ Filter ]*/
 .show-search .icon-search,
 .show-filter .icon-filter {
    display: none;
@@ -1772,7 +1775,7 @@ button.mfp-close {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Num Product ]*/
+ [ Num Product ]*/
 .wrap-num-product {
    width: 140px;
    height: 45px;
@@ -1809,7 +1812,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Tolltip100 ]*/
+ [ Tolltip100 ]*/
 .tooltip100 {
    position: relative;
 }
@@ -1857,7 +1860,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Modal1 ]*/
+ [ Modal1 ]*/
 .wrap-modal1 {
    position: fixed;
    width: 80%;
@@ -1896,7 +1899,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Table Shopping Cart ]*/
+ [ Table Shopping Cart ]*/
 
 .wrap-table-shopping-cart {
    overflow: auto;
@@ -1971,7 +1974,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Block1 ]*/
+ [ Block1 ]*/
 .block1 {
    position: relative;
    border: 1px solid #e6e6e6;
@@ -2035,7 +2038,8 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Block2 ]*/
+ [ Block2 ]*/
+
 .block2-pic {
    position: relative;
 }
@@ -2114,8 +2118,8 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*==================================================================
-    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-==================================================================*/
+     TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+ ==================================================================*/
 .cl0 {
    color: #fff;
 }
@@ -2157,7 +2161,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ S-Text 0 - 15 ]*/
+ [ S-Text 0 - 15 ]*/
 .stext-101 {
    font-family: Poppins-Medium;
    font-size: 15px;
@@ -2272,7 +2276,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ M-Text 16 - 25 ]*/
+ [ M-Text 16 - 25 ]*/
 .mtext-101 {
    font-family: Poppins-Medium;
    font-size: 18px;
@@ -2355,7 +2359,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ L-Text >= 26 ]*/
+ [ L-Text >= 26 ]*/
 .ltext-101 {
    font-family: Poppins-Regular;
    font-size: 28px;
@@ -2427,11 +2431,11 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*==================================================================
-    SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE 
-==================================================================*/
+     SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE SIZE 
+ ==================================================================*/
 
 /*//////////////////////////////////////////////////////////////////
-[ Size ]*/
+ [ Size ]*/
 .size-101 {
    min-width: 161px;
    height: 46px;
@@ -2558,7 +2562,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Width ]*/
+ [ Width ]*/
 .size-201 {
    max-width: 270px;
 }
@@ -2632,7 +2636,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Height ]*/
+ [ Height ]*/
 .size-301 {
    min-height: 30px;
 }
@@ -2646,8 +2650,8 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*==================================================================
-   BACKGROUND BACKGROUND BACKGROUND BACKGROUND BACKGROUND BACKGROUND 
-==================================================================*/
+    BACKGROUND BACKGROUND BACKGROUND BACKGROUND BACKGROUND BACKGROUND 
+ ==================================================================*/
 .bg-none {
    background-color: transparent;
 }
@@ -2701,8 +2705,8 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*==================================================================
-       BORDER BORDER  BORDER  BORDER  BORDER  BORDER  BORDER  BORDER
-==================================================================*/
+        BORDER BORDER  BORDER  BORDER  BORDER  BORDER  BORDER  BORDER
+ ==================================================================*/
 .bor0 {
    border-radius: 50%;
 }
@@ -2799,8 +2803,8 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*==================================================================
- HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW 
-==================================================================*/
+  HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW 
+ ==================================================================*/
 .plh0::-webkit-input-placeholder {
    color: #999999;
 }
@@ -3096,11 +3100,11 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*==================================================================
-      PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO
-==================================================================*/
+       PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO PSEUDO
+ ==================================================================*/
 
 /*//////////////////////////////////////////////////////////////////
-[ Focus ]*/
+ [ Focus ]*/
 .focus-in0:focus::-webkit-input-placeholder {
    color: transparent;
 }
@@ -3115,7 +3119,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ Hover ]*/
+ [ Hover ]*/
 
 .hov-cl0:hover {
    color: #fff;
@@ -3233,12 +3237,15 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*==================================================================
-  RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE
-==================================================================*/
+   RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE
+ ==================================================================*/
 
 /*//////////////////////////////////////////////////////////////////
-[ XL ]*/
+ [ XL ]*/
 @media (max-width: 1199px) {
+   .wrap-modal1 {
+      width: 90%;
+   }
    .m-0-xl {
       margin: 0;
    }
@@ -3295,7 +3302,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ LG ]*/
+ [ LG ]*/
 @media (max-width: 991px) {
    .wrap-modal1 {
       width: 100%;
@@ -3365,7 +3372,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ MD ]*/
+ [ MD ]*/
 @media (max-width: 767px) {
    .m-0-md {
       margin: 0;
@@ -3426,7 +3433,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ SM ]*/
+ [ SM ]*/
 @media (max-width: 575px) {
    .m-0-sm {
       margin: 0;
@@ -3506,7 +3513,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*//////////////////////////////////////////////////////////////////
-[ SSM ]*/
+ [ SSM ]*/
 @media (max-width: 480px) {
    .m-0-ssm {
       margin: 0;

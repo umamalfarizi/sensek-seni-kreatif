@@ -1,4 +1,5 @@
 <?php 
+
 require_once('connection.php');
 
 require_once('session_check.php');
@@ -14,8 +15,8 @@ if( is_null($kontak) ) {
    $kontak['telepon'] = "";
    $kontak['email'] = "";
    $kontak['alamat'] = "";
+   $kontak['link_gmaps'] = "";
 }
-
 
 
 $query3 = "SELECT * FROM tb_seo";
@@ -169,69 +170,7 @@ if( is_null($seo) ) {
                <!-- Begin Page Content -->
                <div class="container-fluid">
                   <div class="row">
-                     <div class="col-lg-6">
-                        <div class="card shadow mb-4">
-                           <div class="card-header py-3">
-                              <h5 class="m-0 font-weight-bold text-primary">Kontak Kami</h5>
-                           </div>
-                           <div class="card-body">
-                              <div class="p-1">
-                                 <form action="action_contact.php" method="post">
-                                    <div class="form-group mb-3">
-                                       <label for="telepon">Nomor Telepon</label>
-                                       <input type="number" id="telepon" class="form-control" name="telepon" value="<?= $kontak['telepon']; ?>" autocomplete="off">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                       <label for="email">Email</label>
-                                       <input type="email" id="email" class="form-control" name="email" value="<?= $kontak['email']; ?>" autocomplete="off">
-                                    </div>
-                                    <div class="form-group mb-4">
-                                       <label for="alamat">Alamat</label>
-                                       <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="3"><?= $kontak['alamat']; ?></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                 </form>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="card shadow mb-4">
-                           <div class="card-header py-3">
-                              <h5 class="m-0 font-weight-bold text-primary">Medsos dan E-Commerce</h5>
-                           </div>
-                           <div class="card-body">
-                              <div class="p-1">
-                                 <form action="action_ecommerce.php" method="post">
-                                 <div class="form-group mb-3">
-                                       <label for="facebook">Tautan Facebook</label>
-                                       <input type="text" id="facebook" class="form-control" name="facebook" autocomplete="off">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                       <label for="instagram">Tautan Instagram</label>
-                                       <input type="text" id="instagram" class="form-control" name="instagram" autocomplete="off">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                       <label for="tiktok">Tautan Tiktok</label>
-                                       <input type="text" id="tiktok" class="form-control" name="tiktok" autocomplete="off">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                       <label for="tokopedia">Tautan Tokopedia</label>
-                                       <input type="text" id="tokopedia" class="form-control" name="tokopedia" autocomplete="off">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                       <label for="shopee">Tautan Shopee</label>
-                                       <input type="text" id="shopee" class="form-control" name="shopee" autocomplete="off">
-                                    </div>
-                                    <div class="form-group mb-4">
-                                       <label for="bukalapak">Tautan Bukalapak</label>
-                                       <input type="text" id="bukalapak" class="form-control" name="bukalapak" autocomplete="off">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                 </form>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-6">
+                  <div class="col-lg-6">
                         <div class="card shadow mb-4">
                            <div class="card-header py-3">
                               <h5 class="m-0 font-weight-bold text-primary">SEO (Search Engine Optimization)</h5>
@@ -272,6 +211,36 @@ if( is_null($seo) ) {
                                           <input class="form-check-input" type="radio" name="robot_follow"  id="no_follow" value="0" <?= ($seo['robot_follow']==0) ? "checked" : "" ; ?> />
                                           <label class="form-check-label" for="no_follow" >No-Follow</label>
                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                              <h5 class="m-0 font-weight-bold text-primary">Kontak Kami</h5>
+                           </div>
+                           <div class="card-body">
+                              <div class="p-1">
+                                 <form action="action_contact.php" method="post">
+                                    <div class="form-group mb-3">
+                                       <label for="telepon">Nomor Telepon</label>
+                                       <input type="text" id="telepon" class="form-control" name="telepon" value="<?= $kontak['telepon']; ?>" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                       <label for="email">Email</label>
+                                       <input type="email" id="email" class="form-control" name="email" value="<?= $kontak['email']; ?>" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                       <label for="alamat">Alamat</label>
+                                       <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="3"><?= $kontak['alamat']; ?></textarea>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                       <label for="link_gmaps">Link Google Maps</label>
+                                       <input type="text" id="link_gmaps" class="form-control" name="link_gmaps" value="<?= $kontak['link_gmaps']; ?>" autocomplete="off">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                  </form>
