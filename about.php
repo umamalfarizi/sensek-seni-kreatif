@@ -190,7 +190,7 @@ if( is_null($seo) ) {
    <section class="bg0 p-t-75 p-b-120">
       <div class="container">
          <div class="row p-b-148">
-            <div class="col-md-7 col-lg-7">
+            <div class="col-md-7 col-lg-8">
                <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
                   <h3 class="mtext-111 cl2 p-b-16">Latar Belakang</h3>
 
@@ -199,14 +199,10 @@ if( is_null($seo) ) {
                   </p>
 
                   <p class="stext-113 cl6 p-b-26">
-                     Sasak Sensek merupakan media penjualan untuk membantu peningkatan ekonomi pengrajin tenun yang sekaligus sebagai tempat pemberdayaan perempuan dan pelestarian budaya dengan mempertahankan filosofi tenun yang kental.
+                     Pada awal berdirinya menggunakan nama Seni Creative. Seni Creative adalah nama lembaga yang mendidik wanita atau perempuan di dusun Mengilok untuk belajar menenun. Seni Creative juga merupakan usaha pemasaran hasil tenun. seiring berjalannya waktu, nama Seni Creative berkembang menjadi Sasak Sensek. Sasak Sensek adalah proses pembuatan, dan juga barang yang dihasilkan tenun itu sendiri sehingga lebih kepada merek dagang tenun. Tenun yang dibuat dengan nama Sasak Sensek diharapkan dapat berkembang sampai seluruh Indonesia bahkan seluruh dunia.
                   </p>
 
                </div>
-            </div>
-
-            <div class="col-lg-1">
-
             </div>
 
             <div class="col-11 col-md-5 col-lg-4 m-lr-auto">
@@ -224,7 +220,7 @@ if( is_null($seo) ) {
                   <h3 class="mtext-111 cl2 p-b-16">Filosofi</h3>
 
                   <p class="stext-113 cl6 p-b-26">
-                     Filosofi Songket Subanale, merupakan motif kreatif songket tertua yang melambangkan kekuasaan Tuhan Yang Maha Kuasa. Zaman dahulu, menenun songket disakralkan dengan cara saat menenun dikelilingi oleh kain putih dan tidak boleh dilihat oleh siapapun. Ketika sudah selesai, lalu diperlihatkan ke semua orang, semua kagum dengan melafazhkan Subhanallah.
+                     Sasak Sensek selain merupakan media penjualan untuk membantu peningkatan ekonomi pengrajin tenun, juga sekaligus sebagai tempat pemberdayaan perempuan dan pelestarian budaya dengan mempertahankan filosofi tenun yang kental. Filosofi Songket Subanale, merupakan motif kreatif songket tertua yang melambangkan kekuasaan Tuhan Yang Maha Kuasa. Zaman dahulu, menenun songket disakralkan dengan cara saat menenun dikelilingi oleh kain putih dan tidak boleh dilihat oleh siapapun. Ketika sudah selesai, lalu diperlihatkan ke semua orang, semua kagum dengan melafazhkan Subhanallah.
                   </p>
 
                   <div class="bor16 p-l-29 p-b-9 m-t-22">
@@ -254,14 +250,14 @@ if( is_null($seo) ) {
       <div class="container">
          <div class="row">
             <div class="col-sm-6 col-lg-4 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">Siapa Kami?</h4>
+               <h4 class="stext-301 cl0 p-b-25">Siapa Kami?</h4>
 
                <p class="stext-107 cl7 size-201">Kami memproduksi kain tenun tradisional beserta produk turunannya dan memproduksi pakaian adat sasak komplit</p>
 
             </div>
 
             <div class="col-sm-6 col-lg-4 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">Hubungi Kami</h4>
+               <h4 class="stext-301 cl0 p-b-25">Hubungi Kami</h4>
 
                <ul>
                   
@@ -289,7 +285,7 @@ if( is_null($seo) ) {
 
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-lg-3 p-b-25">
                <h4 class="stext-301 cl0 p-b-30">Ikuti Kami</h4>
 
                <ul>
@@ -298,7 +294,7 @@ if( is_null($seo) ) {
                   </li>
 
                   <li class="p-b-10">
-                     <a href="https://www.instagram.com/sasksensek/" target="_blank" class="stext-107 cl7 hov-cl1 trans-04"> <i class="bi bi-instagram"></i> @sasaksensek </a>
+                     <a href="https://www.instagram.com/sasksensek/" target="_blank" class="stext-107 cl7 hov-cl1 trans-04"> <i class="bi bi-instagram"></i> @sasksensek </a>
                   </li>
 
                   <li class="p-b-10">
@@ -307,6 +303,13 @@ if( is_null($seo) ) {
                </ul>
             </div>
 
+         </div>
+
+         <div class="">
+            <p class="stext-107 cl7 hov-cl1 trans-04 txt-center">
+               <a href="https://tokopedia.com/sasaks" target="_blank" class="m-r-15"><img src="images/tokped.svg" width="50px" alt=""></a>
+               <a href="https://m.bukalapak.com/u/sasak_sensek_12329" target="_blank"><img src="images/bukalapak.svg" width="50px" alt=""></a>
+            </p>
          </div>
 
          <div class="p-t-40">

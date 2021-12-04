@@ -255,7 +255,7 @@ foreach ( $result3 as $jenis) {
       <section class="sec-product-detail bg0 p-t-65 p-b-60">
          <div class="container">
             <div class="row">
-               <div class="col-md-4 p-b-20">
+               <div class="col-md-5 p-b-20">
                   <div class="p-l-35 p-r-25 p-lr-0-lg ">
                      <img src="dashboard/<?= $foto; ?>" alt="IMG-PRODUCT" style="width: 100%;"/>
                   </div>
@@ -295,7 +295,7 @@ foreach ( $result3 as $jenis) {
 
                      <div class="p-t-30">
                         <div class="flex-w">
-                           <a href="https://api.whatsapp.com/send?phone=6287857097230&text=Hai%20kak%0D%0ASaya%20tertarik%20dengan%20<?= $nama; ?>%20yang%20harganya%20Rp%20<?= number_format($harga); ?>" target="_blank" class="flex-c-m bor4 stext-103 cl2 size-105 bg2 bor2 hov-btn1 p-lr-25 trans-04">
+                           <a href="https://api.whatsapp.com/send?phone=6287857097230&text=Hai%20kak%0D%0ASaya%20tertarik%20dengan%20<?= $nama; ?>%20yang%20harganya%20Rp%20<?= number_format($harga); ?>" target="_blank" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
                               <i class="fa fa-whatsapp m-r-5"></i> Pesan Sekarang
                            </a>
                         </div>
@@ -384,14 +384,14 @@ foreach ( $result3 as $jenis) {
          <div class="container">
             <div class="row">
                <div class="col-sm-6 col-lg-4 p-b-50">
-                  <h4 class="stext-301 cl0 p-b-30">Siapa Kami?</h4>
+                  <h4 class="stext-301 cl0 p-b-25">Siapa Kami?</h4>
 
                   <p class="stext-107 cl7 size-201">Kami memproduksi kain tenun tradisional beserta produk turunannya dan memproduksi pakaian adat sasak komplit</p>
 
                </div>
 
                <div class="col-sm-6 col-lg-4 p-b-50">
-                  <h4 class="stext-301 cl0 p-b-30">Hubungi Kami</h4>
+                  <h4 class="stext-301 cl0 p-b-25">Hubungi Kami</h4>
 
                   <ul>
                      
@@ -419,7 +419,7 @@ foreach ( $result3 as $jenis) {
 
                </div>
 
-               <div class="col-sm-6 col-lg-3 p-b-50">
+               <div class="col-sm-6 col-lg-3 p-b-25">
                   <h4 class="stext-301 cl0 p-b-30">Ikuti Kami</h4>
 
                   <ul>
@@ -428,7 +428,7 @@ foreach ( $result3 as $jenis) {
                      </li>
 
                      <li class="p-b-10">
-                        <a href="https://www.instagram.com/sasksensek/" target="_blank" class="stext-107 cl7 hov-cl1 trans-04"> <i class="bi bi-instagram"></i> @sasaksensek </a>
+                        <a href="https://www.instagram.com/sasksensek/" target="_blank" class="stext-107 cl7 hov-cl1 trans-04"> <i class="bi bi-instagram"></i> @sasksensek </a>
                      </li>
 
                      <li class="p-b-10">
@@ -437,6 +437,13 @@ foreach ( $result3 as $jenis) {
                   </ul>
                </div>
 
+            </div>
+
+            <div class="">
+               <p class="stext-107 cl7 hov-cl1 trans-04 txt-center">
+                  <a href="https://tokopedia.com/sasaks" target="_blank" class="m-r-15"><img src="images/tokped.svg" width="50px" alt=""></a>
+                  <a href="https://m.bukalapak.com/u/sasak_sensek_12329" target="_blank"><img src="images/bukalapak.svg" width="50px" alt=""></a>
+               </p>
             </div>
 
             <div class="p-t-40">
