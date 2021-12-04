@@ -548,7 +548,7 @@ foreach ( $result3 as $jenis) {
                         </div>
 
                         <div class="p-t-30">
-                              <a id="pesan" class="flex-c-m stext-103 cl2 size-105 bg2 bor4 hov-btn1 p-lr-15 trans-04" href="" target="_blank">
+                              <a id="pesan" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" href="" target="_blank">
                                  <i class="fa fa-whatsapp m-r-5"></i> Pesan Sekarang
                               </a>
                         </div>
